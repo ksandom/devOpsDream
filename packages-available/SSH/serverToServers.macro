@@ -1,4 +1,4 @@
-# Copy files from one server to many. eg --from=server01 --to=server.* --serverToServers=/tmp/awesomeFile ~ user
+# Copy files from one server to many. eg --from=server01 --to=server.* --serverToServers=/tmp/awesomeFile . This will copy /tmp/awsomeFile from the server matching the regex in --from to every server matching --to. On a side note, if you think of a use for this that is not a midnight hack, please let me know. ~ user,midnightHack
 
 # TODO make this unique so that multiple calls can work concurrently.
 set ServerToServers,tmp,/tmp/serverToServers
