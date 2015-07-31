@@ -1,4 +1,4 @@
-# Get all the DNS entries from route53. ~ aws,awscli,route53,dns,user
+# Get all the DNS entries from route53. ~ aws,awscli,route53,dns
 
 debug 2,Route53: Retrieving recordsets
 
