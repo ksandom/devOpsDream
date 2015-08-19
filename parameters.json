@@ -1,1 +1,1 @@
-{"name":"mass","mass":{"name":"mass","description":"A commandline tool\/API for doing awesome stuff on many nodes of a cluster.","execName":"mass","packages":{"SELF":{"sourceRepo":"mass","packageRegex":".*"},"BASE":{"sourceRepo":"achel","packageRegex":".*"}}}}
+{"name":"devOpsDream","devOpsDream":{"name":"devOpsDream","description":"What you need to know and access, when you need it. So you can get back to sleep.","execName":"d","packages":{"SELF":{"sourceRepo":"devOpsDream","packageRegex":".*"},"BASE":{"sourceRepo":"achel","packageRegex":".*"}}}}
