@@ -1,11 +1,15 @@
-# Mass
-is a modularised tool for managing several nodes of a cluster. Open individual SSH terminals to specific groups of nodes of your cluster, a single node, or the whole lot. Do the same with ClusterSSH or virtual terminals in screen. Upload a file to each node or dowload a file from each, prefixed with the hostname. Run a command to conquer the world... or conduct that essential maintenance. Essentially your nodes are one RegEx away.
+# DevOpsDream
+Is the next evolution from [Mass](https://github.com/ksandom/mass), which is about quickly and easily getting the information you need about your infrastructure, and doing something with it so you can get back to what's important. It
 
-Now, that's what was significant to me. It turns out though that a lot of people find it really useful as a tool for looking up servers.
+* Brings organisation and understanding to the reality of environments with mixed legacy and current naming conventions.
+* Presents the information in a clear and concise manner, *with* the ability to quickly get `--more` information when needed.
+* Provides an effective way to share information about what parts of the infrastructure are and what they do.
+* Gives you fast access so you can get on with dealing with the task at hand.
+* Can export everything it knows (or a selection of it) in many standard formats such as json.
 
-Driving it all is a [full programming language](https://github.com/ksandom/achel) that is very different to anything I've seen before. I'm building it to scratch a very specific itch and I doubt the full picture it will be useful to many people. In fact, most of it isn't in the public repo yet. However the foundations, which are already released, are really useful for Sysadmin tasks as described above.
+There's a lot in the pipeline. The dream begins *now!*
 
-This is a tiny percentage of the final vision, so there's a lot more to come!
+NOTE There will still be references to mass in the documentation while I complete the migration
 
 ## Requirements
 
@@ -14,7 +18,7 @@ This is a tiny percentage of the final vision, so there's a lot more to come!
 
 ## Install
 
-    export extraSrc="https://github.com/ksandom/mass.git"; curl https://raw.githubusercontent.com/ksandom/achel/master/supplimentary/misc/webInstall | bash
+    export extraSrc="https://github.com/ksandom/devOpsDream.git"; curl https://raw.githubusercontent.com/ksandom/achel/master/supplimentary/misc/webInstall | bash
 
 See [docs/install.md](mass/tree/master/docs/install.md) for more information.
 
