@@ -49,7 +49,7 @@ function query
 function registerWithAchel
 {
 	implementation=`query`
-	mass --setClusterSSH=$implementation
+	d --setClusterSSH=$implementation
 }
 
 function isInstalled
