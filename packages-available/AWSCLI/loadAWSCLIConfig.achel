@@ -1,0 +1,3 @@
+# Load the AWSCLI config data ~ aws,conifg,hidden
+
+collectionLoad AWSCLIConfig

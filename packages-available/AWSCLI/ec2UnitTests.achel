@@ -1,0 +1,9 @@
+# Unit tests for testing the EC2 part of the AWSCLI package. ~ unitTest,ec2,hidden
+
+collectionLoadForUnitTest AWSCLIConfig
+collectionLoadForUnitTest AWSCLIEC2
+
+
+
+collectionUnload AWSCLIEC2
+
