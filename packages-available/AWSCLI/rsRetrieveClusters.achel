@@ -1,7 +1,8 @@
 # Retrieve information about all redshift clusters ~ aws,redshift
 parameters {"region":"eu-west-1"}
 
-exExec aws redshift describe-clusters --output json --region ~!Local,region!~
+setIfNotSet Profile,name,default
+exExec aws redshift describe-clusters --output json --region ~!Local,region!~ --profile ~!Profile,name!~
 
 setCategory RedshiftTmp
 retrieveResults RedshiftTmp,Clusters

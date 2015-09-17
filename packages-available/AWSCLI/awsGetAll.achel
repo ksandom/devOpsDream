@@ -3,5 +3,9 @@
 # This needs to be here because other things rely on it.
 ec2GetRegions
 
-triggerEvent AWS,getAll
-clear
+awsGetProfiles
+loop Profile,
+	set Profile,name,~!Profile,line!~
+	debug 1,Profile ~!Profile,name!~
+	triggerEvent AWS,getAll
+	clear
