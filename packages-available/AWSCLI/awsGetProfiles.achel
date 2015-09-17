@@ -1,0 +1,8 @@
+# Get the profiles configured in .aws/config ~ aws,profiles,get,import
+
+exExec manageAchel getAWSCLIProfiles
+split
+flatten 1
+countToVar Local,profiles
+basicMaths Local,profilesToGet,~!Local,profiles!~,-,1
+firstResult ~!Local,profilesToGet!~

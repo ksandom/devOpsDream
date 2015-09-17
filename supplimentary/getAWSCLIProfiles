@@ -1,0 +1,18 @@
+#!/bin/bash
+# Description
+#   Get the AWS CLI profiles.
+#
+# Syntax:
+#   $0
+#
+# Examples:
+#   Get the profiles. Each profile is on a new line.
+#   $0
+
+requiredParms="$0"
+. `dirname $0`/libs/includeLibs.sh
+
+. $libDir/awscli.sh
+
+getAWSCLIProfiles
+
