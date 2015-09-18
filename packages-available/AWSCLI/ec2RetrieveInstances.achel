@@ -1,8 +1,7 @@
 # Retrieve information about all clusters ~ aws,redshift
-parameters {"region":"eu-west-1"}
+parameters {"region":"eu-west-1","profile":"default"}
 
-setIfNotSet Profile,name,default
-exExec aws ec2 describe-instances --output json --region ~!Local,region!~ --profile ~!Profile,name!~
+exExec aws ec2 describe-instances --output json --region ~!Local,region!~ --profile ~!Local,profile!~
 
 setCategory EC2Tmp
 retrieveResults EC2Tmp,Reservations

@@ -4,14 +4,16 @@ debug 1,EC2: Retrieving instances
 loadAWSCLIEC2
 
 # Get the instances for every region.
-ec2ListRegions
-loop
+ec2ListRegionsAndProfiles
+loop Context,
 	displayProgress
-	set Local,region,~!Result,RegionName!~
 	isolate
-		ec2RetrieveInstances ~!Local,region!~
+		ec2RetrieveInstances ~!Context,RegionName!~,~!Context,ProfileName!~
+		resultSet regionName,~!Context,RegionName!~
+		resultSet profileName,~!Context,ProfileName!~
+		
 		ec2ApplyManipulations
-		stashResults AWSCLIEC2import,~!Local,region!~
+		stashResults AWSCLIEC2import,~!Context,RegionName!~-~!Context,ProfileName!~
 
 # Combine them together.
 getCategory AWSCLIEC2import

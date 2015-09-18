@@ -1,0 +1,16 @@
+# Combine the lists of regions and profiles into a list that is easy to use for importing data from AWS. ~ aws,import
+
+ec2ListRegions
+stashResults Ec2RegionProfile,regions
+
+awsGetProfiles
+stashResults Ec2RegionProfile,profiles
+
+
+retrieveResults Ec2RegionProfile,regions
+loopLite Region,
+	retrieveResults Ec2RegionProfile,profiles
+	loopLite Profile,
+		setNested ["Ec2RegionProfile","combined","~!Region,RegionName!~-~!Profile,line!~",{"RegionName":"~!Region,RegionName!~", "Endpoint":"~!Region,Endpoint!~", "numberOfRecords":"~!Region,numberOfRecords!~", "ProfileName":"~!Profile,line!~"}]
+
+retrieveResults Ec2RegionProfile,combined
