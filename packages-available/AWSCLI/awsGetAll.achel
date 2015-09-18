@@ -9,3 +9,4 @@ loop Profile,
 	debug 1,Profile ~!Profile,name!~
 	triggerEvent AWS,getAll
 	clear
+clear
