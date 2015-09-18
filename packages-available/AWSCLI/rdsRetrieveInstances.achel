@@ -7,3 +7,4 @@ exExec aws rds describe-db-instances --output json --region ~!Local,region!~ --p
 setCategory RDSTmp
 retrieveResults RDSTmp,DBInstances
 unsetCategory RDSTmp
+resultSet Profile,~!Profile,name!~

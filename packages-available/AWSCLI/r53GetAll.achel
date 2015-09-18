@@ -6,6 +6,7 @@ loadAWSCLIR53
 debug 1,Route53: Retrieving hosted zones
 r53RetrieveHostedZones
 stashResults AWSCLIR53,hostedZones
+!~
 
 r53RecursivelyRetrieveRecords
 unset AWSCLIR53,recordSets

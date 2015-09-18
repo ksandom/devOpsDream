@@ -7,3 +7,4 @@ exExec aws elb describe-load-balancers --output json --region ~!Local,region!~ -
 setCategory ELBTmp
 retrieveResults ELBTmp,LoadBalancerDescriptions
 unsetCategory ELBTmp
+resultSet Profile,~!Profile,name!~

@@ -7,3 +7,4 @@ exExec aws redshift describe-clusters --output json --region ~!Local,region!~ --
 setCategory RedshiftTmp
 retrieveResults RedshiftTmp,Clusters
 unsetCategory RedshiftTmp
+resultSet Profile,~!Profile,name!~

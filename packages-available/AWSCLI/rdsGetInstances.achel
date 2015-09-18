@@ -10,10 +10,11 @@ ec2ListRegions
 loop
 	displayProgress
 	set Local,region,~!Result,RegionName!~
+	set Local,profile,~!Result,profile!~
 	isolate
 		clear
 		rdsRetrieveInstances ~!Local,region!~
-		stashResults AWSCLIRDSimport,~!Local,region!~
+		stashResults AWSCLIRDSimport,~!Local,region!~-~!Local,profile!~
 
 # Combine them together.
 getCategory AWSCLIRDSimport

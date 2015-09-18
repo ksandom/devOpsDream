@@ -3,4 +3,6 @@ parameters resource
 
 setIfNotSet Profile,name,default
 exExec aws route53 list-resource-record-sets --hosted-zone-id ~!Local,resource!~ --output json --profile ~!Profile,name!~
+resultSet Profile,~!Profile,name!~
+
 

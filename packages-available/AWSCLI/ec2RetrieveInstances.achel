@@ -9,3 +9,4 @@ retrieveResults EC2Tmp,Reservations
 unsetCategory EC2Tmp
 
 resultSet Region,~!Local,region!~
+resultSet Profile,~!Profile,name!~
