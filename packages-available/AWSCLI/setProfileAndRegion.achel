@@ -1,0 +1,5 @@
+# Set the region and profile of each imported item. --setProfileAndRegion=profile,region ~ aws,cli,import,manipulations,hidden
+parameters profile,region
+
+resultSet regionName,~!Local,region!~
+resultSet profileName,~!Local,profile!~

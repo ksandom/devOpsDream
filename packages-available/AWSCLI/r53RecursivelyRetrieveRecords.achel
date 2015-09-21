@@ -1,18 +1,21 @@
-# Get all the DNS entries from route53. ~ aws,awscli,route53,dns
+# Get all the DNS entries from route53. --r53RecursivelyRetrieveRecords=[profile] ~ aws,awscli,route53,dns
+parameters {"profile":"default"}
+# TODO finish profile
 
 debug 2,Route53: Retrieving recordsets
 
 # TODO test that this is working
 countToVar Local,numberOfResults
 if ~!Local,numberOfResults!~,==,0,
-	r53RetrieveHostedZones
+	r53RetrieveHostedZones ~!Local,profile!~
 
 unsetCategory Route53
 loop
 	# Get the record set
 	debug 3,Route53: ID="~!Result,Id!~" Name="~!Result,Name!~"
 	displayProgress
-	r53RetrieveResourceRecordSets ~!Result,Id!~
+	r53RetrieveResourceRecordSets ~!Local,profile!~,~!Result,Id!~
+	setProfileAndRegion ~!Context,ProfileName!~,NA
 	
 	# Put the data into a more useable format
 	setCategory Route53Tmp

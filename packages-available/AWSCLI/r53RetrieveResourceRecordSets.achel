@@ -1,8 +1,5 @@
-# Retrieve the record sets for a route53 resource. --r53RetrieveResourceRecordSets=resourceID . Eg --r53RetrieveResourceRecordSets=/hostedzone/AAAAAAAAAA ~ route53,aws
-parameters resource
+# Retrieve the record sets for a route53 resource. --r53RetrieveResourceRecordSets=[profile],resourceID . Eg --r53RetrieveResourceRecordSets=/hostedzone/AAAAAAAAAA ~ route53,aws
+parameters {"profile":"default","resource":""}
 
 setIfNotSet Profile,name,default
-exExec aws route53 list-resource-record-sets --hosted-zone-id ~!Local,resource!~ --output json --profile ~!Profile,name!~
-resultSet Profile,~!Profile,name!~
-
-
+exExec aws route53 list-resource-record-sets --hosted-zone-id ~!Local,resource!~ --output json --profile ~!Local,profile!~

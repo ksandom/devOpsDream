@@ -1,10 +1,10 @@
-# Retrieve information about all load balancers ~ aws,elb
-parameters {"region":"eu-west-1"}
+# Retrieve information about all load balancers --elbRetrieveLoadBalancers=[region] ~ aws,elb
+parameters {"profile":"default","region":"eu-west-1"}
 
 setIfNotSet Profile,name,default
-exExec aws elb describe-load-balancers --output json --region ~!Local,region!~ --profile ~!Profile,name!~
+exExec aws elb describe-load-balancers --output json --region ~!Local,region!~ --profile ~!Local,profile!~
 
 setCategory ELBTmp
 retrieveResults ELBTmp,LoadBalancerDescriptions
 unsetCategory ELBTmp
-resultSet Profile,~!Profile,name!~
+resultSet Profile,~!Local,profile!~

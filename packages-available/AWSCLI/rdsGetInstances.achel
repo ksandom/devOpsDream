@@ -5,16 +5,15 @@ debug 1,RDS: Retrieving Instances
 loadAWSCLIRDS
 
 # Get the clusters for every region.
-ec2ListRegions
+ec2ListRegionsAndProfiles
 # excludeEach (sa-east-1|us-west-1)
-loop
+loop Context,
 	displayProgress
-	set Local,region,~!Result,RegionName!~
-	set Local,profile,~!Result,profile!~
 	isolate
 		clear
-		rdsRetrieveInstances ~!Local,region!~
-		stashResults AWSCLIRDSimport,~!Local,region!~-~!Local,profile!~
+		rdsRetrieveInstances ~!Context,ProfileName!~,~!Context,RegionName!~
+		stashResults AWSCLIRDSimport,~!Context,ProfileName!~-~!Context,RegionName!~
+		setProfileAndRegion ~!Context,ProfileName!~,~!Context,RegionName!~
 
 # Combine them together.
 getCategory AWSCLIRDSimport

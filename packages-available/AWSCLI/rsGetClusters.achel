@@ -4,15 +4,15 @@ debug 1,Redshift: Retrieving clusters
 loadAWSCLIRedshift
 
 # Get the clusters for every region.
-ec2ListRegions
+ec2ListRegionsAndProfiles
 excludeEach (sa-east-1|us-west-1)
-loop
+loop Context,
 	displayProgress
-	set Local,region,~!Result,RegionName!~
 	isolate
 		clear
-		rsRetrieveClusters ~!Local,region!~
-		stashResults AWSCLIRSimport,~!Local,region!~
+		rsRetrieveClusters ~!Context,ProfileName!~,~!Context,RegionName!~
+		stashResults AWSCLIRSimport,~!Context,ProfileName!~-~!Context,RegionName!~
+		setProfileAndRegion ~!Context,ProfileName!~,~!Context,RegionName!~
 
 # Combine them together.
 getCategory AWSCLIRSimport

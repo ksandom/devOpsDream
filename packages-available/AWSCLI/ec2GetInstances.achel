@@ -3,17 +3,16 @@
 debug 1,EC2: Retrieving instances
 loadAWSCLIEC2
 
-# Get the instances for every region.
+# Get the instances for every region and profile.
 ec2ListRegionsAndProfiles
 loop Context,
 	displayProgress
 	isolate
-		ec2RetrieveInstances ~!Context,RegionName!~,~!Context,ProfileName!~
-		resultSet regionName,~!Context,RegionName!~
-		resultSet profileName,~!Context,ProfileName!~
+		ec2RetrieveInstances ~!Context,ProfileName!~,~!Context,RegionName!~
+		setProfileAndRegion ~!Context,ProfileName!~,~!Context,RegionName!~
 		
 		ec2ApplyManipulations
-		stashResults AWSCLIEC2import,~!Context,RegionName!~-~!Context,ProfileName!~
+		stashResults AWSCLIEC2import,~!Context,ProfileName!~,~!Context,RegionName!~
 
 # Combine them together.
 getCategory AWSCLIEC2import
@@ -21,7 +20,7 @@ flatten 1
 unset AWSCLIEC2,instances
 stashResults AWSCLIEC2,instances
 
-# Make it useable for mass.
+# Make it useable for mass/devOpsDream.
 ec2ExportToMassFormat
 
 # Cleanup

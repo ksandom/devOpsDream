@@ -1,7 +1,8 @@
-# Get all the route53 hosted zones ~ route53,aws
+# Get all the route53 hosted zones --r53RetrieveHostedZones=[profile] ~ route53,aws
+parameters {"profile":"default"}
 
 setIfNotSet Profile,name,default
-exExec aws route53 list-hosted-zones --output json --profile ~!Profile,name!~
+exExec aws route53 list-hosted-zones --output json --profile ~!Local,profile!~
 
 setCategory Route53Tmp
 retrieveResults Route53Tmp,HostedZones

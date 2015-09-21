@@ -1,10 +1,10 @@
-# Retrieve information about all RDS instances ~ aws,redshift
-parameters {"region":"eu-west-1"}
+# Retrieve information about all RDS instances --rdsRetrieveInstances=[profile],[region] ~ aws,redshift
+parameters {"profile":"default","region":"eu-west-1"}
 
 setIfNotSet Profile,name,default
-exExec aws rds describe-db-instances --output json --region ~!Local,region!~ --profile ~!Profile,name!~
+exExec aws rds describe-db-instances --output json --region ~!Local,region!~ --profile ~!Local,profile!~
 
 setCategory RDSTmp
 retrieveResults RDSTmp,DBInstances
 unsetCategory RDSTmp
-resultSet Profile,~!Profile,name!~
+resultSet Profile,~!Local,profile!~

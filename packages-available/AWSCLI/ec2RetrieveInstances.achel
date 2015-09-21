@@ -1,5 +1,5 @@
-# Retrieve information about all clusters ~ aws,redshift
-parameters {"region":"eu-west-1","profile":"default"}
+# Retrieve information about all clusters. --ec2RetrieveInstances=[profile],[region] ~ aws,redshift
+parameters {"profile":"default","region":"eu-west-1"}
 
 exExec aws ec2 describe-instances --output json --region ~!Local,region!~ --profile ~!Local,profile!~
 

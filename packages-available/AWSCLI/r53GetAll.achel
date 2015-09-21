@@ -3,10 +3,14 @@
 
 loadAWSCLIR53
 
-debug 1,Route53: Retrieving hosted zones
-r53RetrieveHostedZones
-stashResults AWSCLIR53,hostedZones
+awsGetProfiles
+loop Profile,
+	debug 1,Route53: Retrieving hosted zones
+	r53RetrieveHostedZones ~!Profile,line!~
+	setProfileAndRegion NA,~!Profile,line!~
+	stashResults AWSCLIR53,hostedZones
 
-r53RecursivelyRetrieveRecords
-unset AWSCLIR53,recordSets
-stashResults AWSCLIR53,recordSets
+	r53RecursivelyRetrieveRecords ~!Profile,line!~
+	setProfileAndRegion NA,~!Profile,line!~
+	unset AWSCLIR53,recordSets
+	stashResults AWSCLIR53,recordSets

@@ -5,15 +5,15 @@ debug 1,ELB: Retrieving Load balancers
 loadAWSCLIELB
 
 # Get the load balancers for every region.
-ec2ListRegions
+ec2ListRegionsAndProfiles 
 # excludeEach (sa-east-1|us-west-1)
-loop
+loop Context,
 	displayProgress
-	set Local,region,~!Result,RegionName!~
 	isolate
 		clear
-		elbRetrieveLoadBalancers ~!Local,region!~
-		stashResults AWSCLIELBimport,~!Local,region!~
+		elbRetrieveLoadBalancers ~!Context,ProfileName!~,~!Context,RegionName!~
+		stashResults AWSCLIELBimport,~!Context,ProfileName!~,~!Context,RegionName!~
+		setProfileAndRegion ~!Context,ProfileName!~,~!Context,RegionName!~
 
 # Combine them together.
 getCategory AWSCLIELBimport
