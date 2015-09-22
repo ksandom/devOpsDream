@@ -1,0 +1,10 @@
+# Run this near the begining of a script if the regions are needed. This will only be called if they don't exist. ~ aws,cli,regions,hidden
+
+loadAWSCLIEC2
+
+isolate
+	retrieveResults AWSCLIEC2,regions
+	countToVar Local,numberOfRegions
+	if ~!Local,numberOfRegions!~,<,1,
+		debug 1,Regions needed, but we don't have any. Requesting ec2GetRegions.
+		ec2GetRegions
