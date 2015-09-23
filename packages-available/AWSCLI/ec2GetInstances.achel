@@ -7,7 +7,7 @@ needEc2Regions
 
 # Get the instances for every region and profile.
 ec2ListRegionsAndProfiles
-loopLite Context,
+loop Context,
 	displayProgress
 	isolate
 		ec2RetrieveInstances ~!Context,ProfileName!~,~!Context,RegionName!~
