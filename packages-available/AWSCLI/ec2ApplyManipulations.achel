@@ -1,4 +1,5 @@
 # Apply EC2 manipulations to make the data more useable. This is intended to be called automatically during import. ~ aws,ec2,manipulations,hidden
+parameters {"profile":"default","region":"eu-west-1"}
 
 loop
 	# TODO some of this stuff might be interesting later on. Move it to a better location.
@@ -44,6 +45,9 @@ loop
 	set Result,instanceType,~!Result,InstanceType!~
 	set Result,architecture,~!Result,Architecture!~
 	set Result,rootDeviceType,~!Result,RootDeviceType!~
+	
+	set Result,profile,~!Local,profile!~
+	set Result,region,~!Local,region!~
 
 pass
 	

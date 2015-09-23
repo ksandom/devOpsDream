@@ -11,9 +11,8 @@ loopLite Context,
 	displayProgress
 	isolate
 		ec2RetrieveInstances ~!Context,ProfileName!~,~!Context,RegionName!~
-		setProfileAndRegion ~!Context,ProfileName!~,~!Context,RegionName!~
+		ec2ApplyManipulations ~!Context,ProfileName!~,~!Context,RegionName!~
 		
-		ec2ApplyManipulations
 		stashResults AWSCLIEC2import,~!Context,ProfileName!~-~!Context,RegionName!~
 
 # Combine them together.
