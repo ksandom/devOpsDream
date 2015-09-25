@@ -30,6 +30,11 @@ loop
 		set Result,hostName,unNamedTravesty
 	
 	
+	# Set some variables
+	set Result,source,AWSCLI
+	now Result,importTimeStamp
+	fuzzyTime Result,importFuzzyTimeStamp,~!Result,importTimeStamp!~
+	
 	# Get the private IP
 	# TODO This is not correct. It should probably be privateIP
 	set Result,internalIP,~!Result,PrivateIpAddress!~
