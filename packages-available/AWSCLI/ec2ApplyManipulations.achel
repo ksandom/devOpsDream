@@ -63,3 +63,5 @@ triggerEvent AWS,importedInstances
 # TODO remove legacy events
 triggerEvent AWS,importedHostsFromAccount
 triggerEvent AWS,importedFromAccount
+
+cleanHostData
