@@ -1,0 +1,4 @@
+#!/bin/bash
+# Build it
+
+docker build -t devopsdreamupdater .
