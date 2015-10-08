@@ -2,3 +2,5 @@
 # Build it
 
 docker build -t devopsdreamupdater .
+
+# TODO add facility for adding custom repos

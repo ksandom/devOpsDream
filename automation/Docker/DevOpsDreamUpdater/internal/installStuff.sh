@@ -12,14 +12,16 @@
 # Create user
 useradd -m devOpsDreamUpdater -s /bin/bash
 mkdir ~devOpsDreamUpdater/bin
+chown -R devOpsDreamUpdater ~devOpsDreamUpdater/bin
 
 # Install achel
 cd /var/achelRepos/achel
 chmod 755 /var/achelRepos/achel/install.sh
-su -c /var/achelRepos/achel/install.sh devOpsDreamUpdater
+su - devOpsDreamUpdater -c /var/achelRepos/achel/install.sh
 
 # Install devOpsDream
-manageAchel repoInstall /var/achelRepos/devOpsDream
+su - devOpsDreamUpdater -c "manageAchel repoInstall /var/achelRepos/devOpsDream"
 
+su - devOpsDreamUpdater -c "d --unitTests"
 # TODO Install custom repo
 

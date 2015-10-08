@@ -1,4 +1,4 @@
 #!/bin/bash
 # Run devOpsDreamUpdater
 
-docker start devOpsDreamUpdater -v ~/.ssh:/home/devopsdreamupdater/.ssh updaterService
+docker start devopsdreamupdater -v ~/.ssh:/home/devopsdreamupdater/.ssh updaterService

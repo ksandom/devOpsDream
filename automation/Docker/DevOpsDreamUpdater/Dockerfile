@@ -7,11 +7,10 @@ RUN mkdir -p /var/achelRepos;cd /var/achelRepos;git clone https://github.com/ksa
 
 # Install everything
 ENV builton=2015-10-01
-ADD installStuff.sh /usr/sbin/installStuff
+ADD internal/installStuff.sh /usr/sbin/installStuff
 ADD updaterService.sh /usr/sbin/updaterService
 RUN chmod 755 /usr/sbin/installStuff /usr/sbin/updaterService
 RUN /usr/sbin/installStuff
-RUN d --unitTests
 
 # Setup the service
-CMD updaterService
+# CMD updaterService
