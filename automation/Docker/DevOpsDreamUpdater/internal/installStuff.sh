@@ -22,6 +22,5 @@ su - devOpsDreamUpdater -c /var/achelRepos/achel/install.sh
 # Install devOpsDream
 su - devOpsDreamUpdater -c "manageAchel repoInstall /var/achelRepos/devOpsDream"
 
-su - devOpsDreamUpdater -c "d --unitTests"
 # TODO Install custom repo
 

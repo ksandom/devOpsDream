@@ -1,6 +1,19 @@
 #!/bin/bash
 # Build it
 
+function commitToImage
+{
+	latestID=`docker ps -a | awk '{print $1}' | tail -n+2 | head -n 1`
+	docker commit "$latestID" devopsdreamupdater
+	docker rm "$latestID"
+}
+
 docker build -t devopsdreamupdater .
 
-# TODO add facility for adding custom repos
+docker run devopsdreamupdater su - devOpsDreamUpdater -c 'd --unitTests'
+commitToImage
+
+docker run devopsdreamupdater touch /tmp/blimey
+commitToImage
+
+
