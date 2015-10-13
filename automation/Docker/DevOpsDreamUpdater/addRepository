@@ -1,0 +1,15 @@
+#!/bin/bash
+# Adds an achel repository. This is useful for adding your own achel import functionality.
+# Syntax
+#   addRepository /path/to/repo
+
+. libs/build.sh
+
+testForParameters "$1"
+testForRepoExistance "$1"
+
+repoPath="$1"
+repoName=`echo $repoPath | sed 's#/$##g;s#^.*/##g'`
+docker run -v "$repoPath:/var/achelRepos/$repoName" devopsdreamupdater su - devOpsDreamUpdater -c "manageAchel repoInstall \"/var/achelRepos/$repoName\""
+
+commitToImage
