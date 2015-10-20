@@ -6,11 +6,11 @@ ENV builton=2015-10-14
 RUN mkdir -p /var/achelRepos;cd /var/achelRepos;git clone https://github.com/ksandom/achel.git;git clone https://github.com/ksandom/devOpsDream.git; git clone https://github.com/nevik/gitwatch.git
 
 # Install everything
-ENV builton=2015-10-01
+ENV builton=2015-10-19
 ADD internal/installStuff.sh /usr/sbin/installStuff
-ADD internal/updaterService.sh /usr/sbin/updaterService
-RUN chmod 755 /usr/sbin/installStuff /usr/sbin/updaterService
+ADD internal/updaterService.sh /usr/bin/updaterService
+RUN chmod 755 /usr/sbin/installStuff /usr/bin/updaterService
 RUN /usr/sbin/installStuff
 
 # Setup the service
-# CMD updaterService
+CMD updaterService
