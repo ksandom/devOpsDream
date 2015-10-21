@@ -11,8 +11,6 @@ testForRepoExistance "$1"
 repoPath="$1"
 repoName=`echo $repoPath | sed 's#/$##g;s#^.*/##g'`
 
-# TODO refactor using internal addRepository.sh
-#docker run -v "$repoPath:/tmp/$repoName" devopsdreamupdater su - devOpsDreamUpdater -c "manageAchel repoInstall \"/var/achelRepos/$repoName\"; d --unitTests"
-docker run -v "$repoPath:/var/achelRepos/$repoName" devopsdreamupdater su - devOpsDreamUpdater -c "manageAchel repoInstall \"/var/achelRepos/$repoName\"; d --unitTests"
+docker run -v "$repoPath:/tmp/$repoName" devopsdreamupdater "addRepository"
 
 commitToImage
