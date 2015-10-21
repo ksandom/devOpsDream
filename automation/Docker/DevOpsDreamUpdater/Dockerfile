@@ -10,7 +10,7 @@ ENV builton=2015-10-19
 ADD internal/installStuff.sh /usr/sbin/installStuff
 ADD internal/updaterService.sh /usr/bin/updaterService
 ADD internal/addRepository.sh /usr/bin/addRepository
-RUN chmod 755 /usr/sbin/installStuff /usr/bin/updaterService
+RUN chmod 755 /usr/sbin/installStuff /usr/bin/updaterService /usr/bin/addRepository
 RUN /usr/sbin/installStuff
 
 # Setup the service

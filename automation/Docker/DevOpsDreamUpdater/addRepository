@@ -11,6 +11,6 @@ testForRepoExistance "$1"
 repoPath="$1"
 repoName=`echo $repoPath | sed 's#/$##g;s#^.*/##g'`
 
-docker run -v "$repoPath:/tmp/$repoName" devopsdreamupdater "addRepository"
+docker run -tiv "$repoPath:/tmp/$repoName" devopsdreamupdater "addRepository" "$repoName"
 
 commitToImage
