@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Needs to know
-	# TODO What extra repos to clone
-	# TODO Credentials 
-		# TODO github
-		# TODO aws
-
-# Get achel - Currently achieved in the docker file
-# Get devOpsDream - Currently achieved in the docker file
-
 # Create user
 useradd -m devOpsDreamUpdater -s /bin/bash
 mkdir ~devOpsDreamUpdater/bin
@@ -21,6 +12,4 @@ su - devOpsDreamUpdater -c /var/achelRepos/achel/install.sh
 
 # Install devOpsDream
 su - devOpsDreamUpdater -c "manageAchel repoInstall /var/achelRepos/devOpsDream"
-
-# TODO Install custom repo
 
