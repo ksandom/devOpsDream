@@ -13,7 +13,7 @@ while true;do
 		git pull
 	done
 	
-	d --awsGetAll
+	d -v --awsGetAll
 	
 	for repo in *;do
 		cd ~/".achel/repos/$repo"
