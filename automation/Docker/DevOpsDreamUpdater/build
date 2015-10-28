@@ -1,9 +1,0 @@
-#!/bin/bash
-# Build it
-
-. libs/build.sh
-
-docker build -t devopsdreamupdater .
-
-docker run devopsdreamupdater su - devOpsDreamUpdater -c 'd --unitTests'
-commitToImage

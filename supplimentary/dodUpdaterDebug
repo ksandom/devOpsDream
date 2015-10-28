@@ -1,0 +1,23 @@
+#!/bin/bash
+# Description
+#   Debug the DevOpsDreamUpdater docker image. - Starts a bash prompt inside the container.
+#
+#
+# Syntax:
+#   $0 [root]
+#     root defines whether to enter the container as the root user. Default is false. Therefore true will enter as root.
+#
+# Examples:
+#   Enter the image as the normal DevOpsDreamUpdater updater user.
+#   $0 
+#   
+#   Enter the image as the root user.
+#   $0 true
+
+
+requiredParms="$0"
+. `dirname $0`/libs/includeLibs.sh
+
+. $libDir/dodUpdater.sh
+
+dodDebug $1

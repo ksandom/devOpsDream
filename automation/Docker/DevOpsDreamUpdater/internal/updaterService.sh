@@ -5,6 +5,10 @@ verbosity=1
 
 set -x
 
+git config --global user.email "you@example.com"
+git config --global user.name "devOpsDreamUpdater service"
+git config --global push.default matching
+
 while true;do
 	cd ~/.achel/repos
 	for repo in *;do
@@ -15,6 +19,7 @@ while true;do
 	
 	d -v --awsGetAll
 	
+	cd ~/.achel/repos
 	for repo in *;do
 		cd ~/".achel/repos/$repo"
 		git add .

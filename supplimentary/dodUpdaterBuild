@@ -1,0 +1,17 @@
+#!/bin/bash
+# Description
+#   Build the DevOpsDreamUpdater. (first step)
+#
+# Syntax:
+#   $0
+#
+# Examples:
+#   Build the DevOpsDreamUpdater
+#   $0
+
+requiredParms="$0"
+. `dirname $0`/libs/includeLibs.sh
+
+. $libDir/dodUpdater.sh
+
+dodBuild

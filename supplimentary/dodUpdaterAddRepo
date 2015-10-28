@@ -1,0 +1,20 @@
+#!/bin/bash
+# Description
+#   Add a repository to DevOpsDreamUpdater. (second step)
+#   Do this to add your specific business rules like the import manipulations.
+#
+#
+# Syntax:
+#   $0 repoName
+#     repoName is the repository name that can be obtained with manageAchel repoList
+#
+# Examples:
+#   Add a repository to the DevOpsDreamUpdater
+#   $0 
+
+requiredParms="$1"
+. `dirname $0`/libs/includeLibs.sh
+
+. $libDir/dodUpdater.sh
+
+dodAddRepo $1
