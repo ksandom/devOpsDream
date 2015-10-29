@@ -40,6 +40,25 @@ function dodRun
 	docker run -it -v ~/.ssh:/home/devOpsDreamUpdater/.ssh -v ~/.aws:/home/devOpsDreamUpdater/.aws devopsdreamupdater su - devOpsDreamUpdater -c 'updaterService'
 }
 
+function dodClean
+{
+	containers=`docker ps -a | grep devopsdreamupdater | awk '{print $1}'`
+	if [ "`echo $containers`" != '' ]; then
+		echo "Removing containers"
+		docker rm "$containers"
+	else
+		echo "No containers to remove."
+	fi
+	
+	images=`docker images | grep devopsdreamupdater | awk '{print $3}'`
+	if [ "`echo $images`" != '' ]; then
+		echo "Removing images"
+		docker rmi "$images"
+	else
+		echo "No images to remove"
+	fi
+}
+
 
 function getDODDockerDir
 {

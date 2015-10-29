@@ -2,11 +2,11 @@ FROM debian:jessie
 RUN apt-get update && apt-get install -y php5-cli git python-pip
 RUN pip install awscli
 
-ENV builton=2015-10-14
+ENV builton=2015-10-29
 RUN mkdir -p /var/achelRepos;cd /var/achelRepos;git clone https://github.com/ksandom/achel.git;git clone https://github.com/ksandom/devOpsDream.git; git clone https://github.com/nevik/gitwatch.git
 
 # Install everything
-ENV builton=2015-10-19
+ENV builton=2015-10-29
 ADD internal/installStuff.sh /usr/sbin/installStuff
 ADD internal/updaterService.sh /usr/bin/updaterService
 ADD internal/addRepository.sh /usr/bin/addRepository

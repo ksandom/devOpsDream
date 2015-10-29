@@ -11,7 +11,8 @@ git config --global push.default matching
 
 while true;do
 	cd ~/.achel/repos
-	for repo in *;do
+	repos=`find */.git/config -maxdepth 1 -user `whoami` | cut -d/ -f 1`
+	for repo in $repos;do
 		cd ~/".achel/repos/$repo"
 		git stash # TODO ditch any uncommitted changes, rather than stash
 		git pull
@@ -20,7 +21,7 @@ while true;do
 	d -v --awsGetAll
 	
 	cd ~/.achel/repos
-	for repo in *;do
+	for repo in $repos;do
 		cd ~/".achel/repos/$repo"
 		git add .
 		git commit -m 'devOpsDreamUpdater: Data commit.'
