@@ -4,7 +4,6 @@ function dodBuild
 { # Build DevOpsDream updater
 	cd `getDODDockerDir`
 	docker build -t devopsdreamupdater .
-	commitToImage
 }
 
 function dodAddRepo

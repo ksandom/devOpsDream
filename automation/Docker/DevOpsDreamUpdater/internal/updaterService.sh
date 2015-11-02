@@ -11,7 +11,7 @@ git config --global push.default matching
 
 while true;do
 	cd ~/.achel/repos
-	repos=`find */.git/config -maxdepth 1 -user `whoami` | cut -d/ -f 1`
+	repos=`find */.git/config -maxdepth 1 -user \`whoami\` | cut -d/ -f 1`
 	for repo in $repos;do
 		cd ~/".achel/repos/$repo"
 		git stash # TODO ditch any uncommitted changes, rather than stash
