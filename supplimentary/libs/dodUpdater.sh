@@ -6,6 +6,24 @@ function dodBuild
 	docker build -t devopsdreamupdater .
 }
 
+function dodBuildLocal
+{ # Build DevOpsDream updater with the current copies of the repos rather than downloading them. This is useful for testing new 
+	tmpDir="/tmp/dodab-$$"
+	
+	mkdir "$tmpDir"
+	cp -R `getDODDockerDir`/* $tmpDir
+	cd "$tmpDir"
+	
+	cp Dockerfile.local Dockerfile
+	
+	mkdir achelRepos
+	cp -R --dereference "$configDir/repos/achel" "$configDir/repos/devOpsDream" achelRepos
+	
+	docker build -t devopsdreamupdater .
+	
+	rm -Rf "$tmpDir"
+}
+
 function dodAddRepo
 {
 	cd `getDODDockerDir`
@@ -44,7 +62,7 @@ function dodClean
 	containers=`docker ps -a | grep devopsdreamupdater | awk '{print $1}'`
 	if [ "`echo $containers`" != '' ]; then
 		echo "Removing containers"
-		docker rm "$containers"
+		docker rm $containers
 	else
 		echo "No containers to remove."
 	fi
@@ -52,7 +70,7 @@ function dodClean
 	images=`docker images | grep devopsdreamupdater | awk '{print $3}'`
 	if [ "`echo $images`" != '' ]; then
 		echo "Removing images"
-		docker rmi "$images"
+		docker rmi $images
 	else
 		echo "No images to remove"
 	fi

@@ -1,6 +1,8 @@
 #!/bin/bash
 # Description
-#   Build the DevOpsDreamUpdater. (first step)
+#   Build the DevOpsDreamUpdater using locally installed repos. (alternate first step)
+#   Use this if you are developing achel of DevOpsDream.
+#   You don't need to use this if you are simply developing your own repo to work with DevOpsDream because that will already be local.
 #
 # Syntax:
 #   $0 [repoName]
@@ -21,7 +23,7 @@ requiredParms="$0"
 . $libDir/dodUpdater.sh
 
 # Do the build.
-dodBuild
+dodBuildLocal
 
 # Add a repo if we've been given one.
 if [ "$1" != '' ]; then
