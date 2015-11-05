@@ -14,7 +14,7 @@ while true;do
 	for repo in $repos;do
 		cd ~/".achel/repos/$repo"
 		echo "Pulling $repo."
-		git stash # TODO ditch any uncommitted changes, rather than stash
+		git reset --hard
 		git pull
 	done
 	
