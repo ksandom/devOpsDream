@@ -2,14 +2,8 @@
 
 Updates the data definitions for DevOpsDream for distributing.
 
-## Updating
+## Setup
 
-## Methods of distributing the definitions
-
-### Git
-
-### Dropbox
-
-## Credentials
-
-
+    dodUpdaterBuild
+    dodUpdaterAddRepo nameOfYourCustomerRepo
+    dodUpdaterRun
