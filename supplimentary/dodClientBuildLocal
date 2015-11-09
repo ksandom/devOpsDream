@@ -23,7 +23,7 @@ requiredParms="$0"
 . $libDir/dodUpdater.sh
 
 # Do the build.
-dodUpdaterBuildLocal
+dodClientBuildLocal
 
 # Add a repo if we've been given one.
 if [ "$1" != '' ]; then

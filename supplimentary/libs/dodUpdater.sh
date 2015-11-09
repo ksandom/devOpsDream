@@ -2,16 +2,18 @@
 
 function dodBuild
 { # Build DevOpsDream updater
-	cd `getDODDockerDir`
+	cd `getDODUpdaterDockerDir`
 	docker build -t devopsdreamupdater .
 }
 
-function dodBuildLocal
-{ # Build DevOpsDream updater with the current copies of the repos rather than downloading them. This is useful for testing new 
+function dodGenericBuildLocal
+{
 	tmpDir="/tmp/dodab-$$"
+	buildTypeUpper="$1"
+	buildTypeLower="$2"
 	
 	mkdir "$tmpDir"
-	cp -R `getDODDockerDir`/* $tmpDir
+	cp -R `getDOD${buildTypeUpper}DockerDir`/* $tmpDir
 	cd "$tmpDir"
 	
 	cp Dockerfile.local Dockerfile
@@ -19,17 +21,28 @@ function dodBuildLocal
 	mkdir achelRepos
 	cp -R --dereference "$configDir/repos/achel" "$configDir/repos/devOpsDream" achelRepos
 	
-	docker build -t devopsdreamupdater .
+	docker build -t devopsdream${buildTypeLower} .
 	
 	rm -Rf "$tmpDir"
 }
 
+function dodUpdaterBuildLocal
+{ # Build DevOpsDream updater with the current copies of the repos rather than downloading them. This is useful for testing new 
+	dodGenericBuildLocal Updater updater
+}
+
+function dodClientBuildLocal
+{ # Build DevOpsDream client with the current copies of the repos rather than downloading them. This is useful for testing new 
+	dodGenericBuildLocal Client client
+}
+
 function dodAddRepo
 {
-	cd `getDODDockerDir`
+	cd `getDODUpdaterDockerDir`
 	
 	repoName="$1"
 	repoPath="$configDir/repos/$repoName"
+	buildTypeLower="$2"
 	
 	# Test that we have the repo
 	if ! [ -e "$repoPath" ]; then
@@ -37,18 +50,21 @@ function dodAddRepo
 		exit 1
 	fi
 	
-	docker run -tiv "$repoPath:/tmp/$repoName" devopsdreamupdater "addRepository" "$repoName"
+	docker run -tiv "$repoPath:/tmp/$repoName" devopsdream${buildTypeLower} "addRepository" "$repoName"
 	commitToImage
 }
 
 function dodDebug
 {
 	rootUser="$1"
+	buildTypeUpper="$2"
+	buildTypeLower="$3"
+	
 	
 	if [ "$rootUser" == 'true' ]; then
-		docker run -it devopsdreamupdater 'bash'
+		docker run -it devopsdream${buildTypeLower} 'bash'
 	else
-		docker run -it devopsdreamupdater su - devOpsDreamUpdater -c 'bash'
+		docker run -it devopsdream${buildTypeLower} su - devOpsDream{$buildTypeLower} -c 'bash'
 	fi
 }
 
@@ -77,9 +93,14 @@ function dodClean
 }
 
 
-function getDODDockerDir
+function getDODUpdaterDockerDir
 {
 	echo "$configDir/repos/devOpsDream/automation/Docker/DevOpsDreamUpdater"
+}
+
+function getDODClientDockerDir
+{
+	echo "$configDir/repos/devOpsDream/automation/Docker/DevOpsDreamClient"
 }
 
 function commitToImage
