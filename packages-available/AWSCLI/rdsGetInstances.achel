@@ -1,5 +1,4 @@
 # Get all RDS instances from every region. ~ rds,aws,import
-#onDefine registerForEvent AWS,getAll,rsGetClusters
 
 debug 1,RDS: Retrieving Instances
 loadAWSCLIRDS

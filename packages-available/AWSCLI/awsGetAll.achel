@@ -1,12 +1,9 @@
 # Get every type of data that we can ~ aws,user,import
 
 # This needs to be here because other things rely on it.
+debug 1,AWS: Get regions
 ec2GetRegions
 
-awsGetProfiles
-loop Profile,
-	set Profile,name,~!Profile,line!~
-	debug 1,Profile ~!Profile,name!~
-	triggerEvent AWS,getAll
-	clear
+debug 1,AWS: Get everything else
+triggerEvent AWS,getAll
 clear
