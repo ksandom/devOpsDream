@@ -27,5 +27,5 @@ dodClientBuildLocal
 
 # Add a repo if we've been given one.
 if [ "$1" != '' ]; then
-	dodAddRepo $1
+	dodAddRepo $1 client
 fi

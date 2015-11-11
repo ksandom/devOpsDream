@@ -12,11 +12,13 @@ function dodGenericBuildLocal
 	buildTypeUpper="$1"
 	buildTypeLower="$2"
 	
+	echo "Building $buildTypeUpper/$buildTypeLower in $tmpDir"
 	mkdir "$tmpDir"
 	cp -R `getDOD${buildTypeUpper}DockerDir`/* $tmpDir
 	cd "$tmpDir"
 	
 	cp Dockerfile.local Dockerfile
+	cat Dockerfile
 	
 	mkdir achelRepos
 	cp -R --dereference "$configDir/repos/achel" "$configDir/repos/devOpsDream" achelRepos
@@ -73,9 +75,21 @@ function dodRun
 	docker run -it -v ~/.ssh:/home/devOpsDreamUpdater/.ssh -v ~/.aws:/home/devOpsDreamUpdater/.aws devopsdreamupdater su - devOpsDreamUpdater -c 'updaterService'
 }
 
+function dodClientClean
+{
+	dodClean client
+}
+
+function dodUpdaterClean
+{
+	dodClean updater
+}
+
 function dodClean
 {
-	containers=`docker ps -a | grep devopsdreamupdater | awk '{print $1}'`
+	buildTypeLower="$1"
+	
+	containers=`docker ps -a | grep devopsdream${buildTypeLower} | awk '{print $1}'`
 	if [ "`echo $containers`" != '' ]; then
 		echo "Removing containers"
 		docker rm $containers
@@ -83,7 +97,7 @@ function dodClean
 		echo "No containers to remove."
 	fi
 	
-	images=`docker images | grep devopsdreamupdater | awk '{print $3}'`
+	images=`docker images | grep devopsdream${buildTypeLower} | awk '{print $3}'`
 	if [ "`echo $images`" != '' ]; then
 		echo "Removing images"
 		docker rmi $images

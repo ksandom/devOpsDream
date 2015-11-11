@@ -1,6 +1,6 @@
 #!/bin/bash
 # Description
-#   Clean out all the old DevOpsDreamUpdater containers/images. Useful if you want to re-build with the latest copies of every repository.
+#   Clean out all the old DevOpsDreamClient containers/images. Useful if you want to re-build with the latest copies of every repository.
 #
 # Syntax:
 #   $0
@@ -14,4 +14,4 @@ requiredParms="$0"
 
 . $libDir/dodUpdater.sh
 
-dodUpdaterClean
+dodClientClean
