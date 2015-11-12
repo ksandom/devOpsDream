@@ -14,4 +14,4 @@ requiredParms="$0"
 
 . $libDir/dodUpdater.sh
 
-dodUpdaterClean
+dodUpdaterClean Updater updater
