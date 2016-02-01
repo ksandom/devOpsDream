@@ -1,0 +1,14 @@
+# Connect to all hosts returned from --list ~ tui
+
+# TODO fix this hack
+resultSet userAt,
+
+triggerEvent Bastion,load
+triggerEvent Bastion,lookup
+triggerEvent Bastion,deriveCommands
+
+loop
+	connectHost ~!Result,hostName!~,~!Result,IP!~
+	internalHighlightHost
+
+mode term

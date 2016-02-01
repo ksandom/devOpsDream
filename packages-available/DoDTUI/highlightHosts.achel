@@ -1,0 +1,7 @@
+# Highlight hostnames and IPs in output when using the text user interface ~ highlight,hosts,tui
+
+list
+loop
+	internalHighlightHost
+
+null

@@ -1,0 +1,13 @@
+# Connect to a server via SSH --connectHost=hostName,hostIP ~ tui,ssh
+
+if ~!Global,connectHost-0!~,!=,,
+	debug 1,Connecting to ~!Global,connectHost-0!~
+	set Tui,latestHostName,~!Global,connectHost-0!~
+	set Tui,latestHostIP,~!Global,connectHost-1!~
+	
+	# TODO Adapt this to using the parameters
+	createProcFaucet SSH-~!Tui,latestHostName!~,exec ssh ~!Verbosity,externalMinusV!~ ~!Result,sshExtra!~ ~!Result,auth!~ ~!Result,userAt!~~!Result,FQDN!~ ~!Result,cmd!~
+	
+	createPipe SSH-~!Tui,latestHostName!~,termReturn,default,~!Tui,latestHostName!~
+	createPipe termInput,SSH-~!Tui,latestHostName!~
+	createPipe SSH-~!Tui,latestHostName!~,lastSeen,default,~!Tui,latestHostName!~

@@ -1,0 +1,13 @@
+# Highlight host
+
+set HighlightHosts,regex,~!Result,hostName!~
+if ~!Result,externalIP!~,!=,,set,HighlightHosts,regex,~!HighlightHosts,regex!~|~!Result,externalIP!~
+if ~!Result,internalIP!~,!=,,set,HighlightHosts,regex,~!HighlightHosts,regex!~|~!Result,internalIP!~
+if ~!Result,IP!~,!=,,set,HighlightHosts,regex,~!HighlightHosts,regex!~|~!Result,IP!~
+if ~!Result,FQDN!~,!=,,set,HighlightHosts,regex,~!HighlightHosts,regex!~|~!Result,FQDN!~
+if ~!Result,internalFQDN!~,!=,,set,HighlightHosts,regex,~!HighlightHosts,regex!~|~!Result,internalFQDN!~
+if ~!Result,internalIP!~,!=,,set,HighlightHosts,regex,~!HighlightHosts,regex!~|~!Result,internalIP!~
+if ~!Result,externalFQDN!~,!=,,set,HighlightHosts,regex,~!HighlightHosts,regex!~|~!Result,externalFQDN!~
+
+# highlight (~!Result,FQDN!~|~!Result,internalFQDN!~|~!Result,externalFQDN!~|~!Result,hostName!~),~!Result,color!~
+highlight (~!HighlightHosts,regex!~),~!Result,color!~

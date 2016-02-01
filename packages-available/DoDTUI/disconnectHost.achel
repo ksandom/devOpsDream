@@ -1,0 +1,16 @@
+# Disconnect from a server --disconnectHost=hostName,IP ~ tui,ssh
+
+if ~!Global,disconnectHost-0!~,!=,,
+	debug 1,Disconnecting from ~!Global,disconnectHost-0!~
+	set Tui,latestHostName,~!Global,disconnectHost-0!~
+	set Tui,latestHostIP,~!Global,disconnectHost-1!~
+
+	forgetHost ~!Tui,latestHostName!~
+
+	deletePipe termInput,SSH-~!Tui,latestHostName!~
+	deletePipe SSH-~!Tui,latestHostName!~,termReturn,default,~!Tui,latestHostName!~
+	deletePipe SSH-~!Tui,latestHostName!~,lastSeen,default,~!Tui,latestHostName!~
+
+
+	deleteFaucet SSH-~!Tui,latestHostName!~
+
