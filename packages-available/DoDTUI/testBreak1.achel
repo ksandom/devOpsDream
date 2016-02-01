@@ -1,0 +1,6 @@
+# Setup to test break ~ tui,test,break
+
+verbose
+connectHost test,localhost
+
+deliver userAppInput,default,tail -F /tmp/a

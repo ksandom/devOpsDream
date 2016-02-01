@@ -1,0 +1,8 @@
+# Connect to localhost a few times ~ test
+
+connectHost localhost1,localhost
+connectHost localhost2-asdads,localhost
+connectHost localhost3-dfdf,localhost
+connectHost localhost4-kyuuuu,localhost
+connectHost localhost5-yui6,localhost
+

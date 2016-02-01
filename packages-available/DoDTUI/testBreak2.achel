@@ -1,0 +1,7 @@
+# Send the break ~ tui,test,break
+
+deliver SSH-test,_control,code C
+deliver SSH-test,_control,c
+# deliver SSH-test,_control,localKill 1
+# deliver SSH-test,_control,localKill 2
+deliver userAppInput,default,echo back ---------------------
