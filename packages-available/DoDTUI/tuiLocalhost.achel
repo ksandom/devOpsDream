@@ -1,0 +1,13 @@
+# SSH to localhost to demo features of the tui ~ tui,demo,localhost
+
+tuiBase
+connectHost demo,localhost
+
+highlight demo,brightRed
+highlight ~!Local,hostname!~,brightPurple
+
+deliver userAppInput,default,ls
+
+mode term
+
+tuiStart
