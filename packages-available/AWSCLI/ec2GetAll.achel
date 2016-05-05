@@ -1,5 +1,6 @@
 # Get all ec2 data that we currently work with. ~ aws,ec2,awsImport
 #onDefine registerForEvent AWS,getAll,ec2GetAll
+#onDefine registerForEvent AWS,getLite,ec2GetAll
 
 ec2GetInstances
 

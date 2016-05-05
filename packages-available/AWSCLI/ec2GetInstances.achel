@@ -1,6 +1,6 @@
 # Get all instances from every region. ~ ec2,aws,import
 
-debug 1,EC2: Retrieving instances
+debug 1,EC2: Retrieving instances from all regions and accounts
 loadAWSCLIEC2
 
 needEc2Regions
