@@ -19,7 +19,7 @@ loop
 	isolate
 		copyCategory Result,ResultBackup
 		retrieveResults Result,Tags
-		requireItem Key,Name
+		requireItem Key,^Name$
 		loop
 			set Local,hostName,~!Result,Value!~
 	copyCategory ResultBackup,Result
