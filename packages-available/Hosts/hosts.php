@@ -260,6 +260,7 @@ class Hosts extends Module
 }
 
 $core=core::assert();
-$core->registerModule(new Hosts());
- 
+$hosts=new Hosts();
+$core->registerModule($hosts);
+
 ?>
