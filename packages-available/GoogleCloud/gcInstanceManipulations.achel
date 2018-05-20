@@ -1,4 +1,5 @@
 # Manipulations for google cloud instances./ ~ gcloud,instances,hidden
+#onDefine registerForEvent GoogleCloud,finishedHostImport,gcInstanceManipulations
 
 loop
 	replaceRegexInString Result,shortZone,(^.*\/),,~!Result,zone!~
