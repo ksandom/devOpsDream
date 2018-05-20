@@ -1,0 +1,4 @@
+# A temporary debugging macro ~ gcloud,instances,hidden
+
+gcloudLoadCachedInstances
+getCategory GCloudInstancesCache

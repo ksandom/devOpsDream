@@ -1,0 +1,14 @@
+# Manipulations for google cloud instances./ ~ gcloud,instances,hidden
+
+loop
+	replaceRegexInString Result,shortZone,(^.*\/),,~!Result,zone!~
+	replaceRegexInString Result,instanceType,(^.*\/),,~!Result,machineType!~
+	
+	set Result,hostName,~!Result,name!~
+	set Result,InstanceId,~!Result,id!~
+	set Result,internalIP,~!Result,networkInterfaces,0,networkIP!~
+	set Result,externalIP,~!Result,networkInterfaces,0,accessConfigs,0,natIP!~
+	set Result,display01,~!Result,shortZone!~
+	set Result,display02,~!Result,instanceType!~
+	set Result,display03,~!Result,cpuPlatform!~
+	set Result,display04,~!Result,disks,0,type!~
