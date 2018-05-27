@@ -1,7 +1,0 @@
-# Get all instances from google cloud. ~ gcloud,import,instances
-
-gcloudLoadCachedInstances
-
-exExec gcloud compute instances list --format json
-
-setCategory GCloudInstancesCache

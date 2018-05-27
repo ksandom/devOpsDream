@@ -13,6 +13,8 @@ loop
 flatten 2
 
 loop
+	set Result,source,aws
+	
 	# Get hostName
 	unset Local,hostName
 	

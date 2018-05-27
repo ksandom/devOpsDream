@@ -1,4 +1,4 @@
-# A temporary debugging macro ~ gcloud,instances,hidden
+# A temporary debugging macro ~ gc,gcloud,instances,hidden
 
-gcloudLoadCachedInstances
-getCategory GCloudInstancesCache
+gcLoadCachedInstances
+getCategory GCInstancesCache
