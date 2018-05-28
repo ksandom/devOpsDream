@@ -1,0 +1,3 @@
+# Generate the command that will be used to connect via SSH if it hasn't been generated already. ~ SSH,hidden
+
+resultSetIfNotSet termCmd,ssh ~!Verbosity,externalMinusV!~ -t ~%sshExtra%~ ~%auth%~ ~%userAt%~~%FQDN%~ ~%cmd%~

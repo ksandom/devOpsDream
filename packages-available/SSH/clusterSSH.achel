@@ -11,6 +11,7 @@ triggerEvent Bastion,deriveCommands
 
 stashResults Cssh,resultset
 
+generateSSHCMD
 template clustersshBastianConfig
 cleanUnresolvedResultVars
 singleStringNow /tmp/cssh.config
