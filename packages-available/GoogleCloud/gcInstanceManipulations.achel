@@ -14,5 +14,5 @@ loop
 	set Result,display02,~!Result,instanceType!~
 	set Result,display03,~!Result,cpuPlatform!~
 	set Result,display04,~!Result,disks,0,type!~
-	set Result,termCmd,gcloud compute ssh ~%name%~ ~%cmd%~
+	set Result,termCmd,gcloud compute ssh --zone=~!Result,shortZone!~ ~!Result,name!~ ~%cmd%~
 

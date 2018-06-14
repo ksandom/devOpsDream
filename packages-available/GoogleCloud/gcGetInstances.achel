@@ -2,6 +2,6 @@
 
 gcLoadCachedInstances
 
-exExec gc compute instances list --format json
+exExec gcloud compute instances list --format json
 
 setCategory GCInstancesCache

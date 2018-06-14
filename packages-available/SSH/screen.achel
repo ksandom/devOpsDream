@@ -10,8 +10,8 @@ triggerEvent Bastion,deriveCommands
 generateSSHCMD
 template screen
 cleanUnresolvedResultVars
-singleStringNow /tmp/mass-~!Global,PID!~.screen
+singleStringNow /tmp/devOpsDream-~!Global,PID!~.screen
 
-exec screen -c /tmp/mass-~!Global,PID!~.screen
+exec screen -c /tmp/devOpsDream-~!Global,PID!~.screen
 # TODO Removing the file kills the screen session. We need to remove it somehow to get rid of clutter. This needs to be solved.
-# exec rm /tmp/mass-~!Global,PID!~.screen
+# exec rm /tmp/devOpsDream-~!Global,PID!~.screen
