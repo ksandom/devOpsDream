@@ -1,8 +1,10 @@
 # Use cluster ssh to control several terminals at once. --list[=hostRegex] --clusterssh ~ terminal,user
-#onDefine aliasFeature clusterSSH,clusterssh,cssh
-#onLoaded setFeatureType clusterSSH,actOnHostsUnknown
+#onDefine aliasFeature legacyClusterSSH,lcssh,cssh
+#onLoaded setFeatureType legacyClusterSSH,actOnHostsUnknown
 
 # TODO detect existing clusterSSH installtion.
+
+debug 0,DEPRECATED: You are using the legacy clusterSSH functionality. Feel free to do so, but understand that the focus is now on the replacement, and that's where debugging effort will go.
 
 outNow
 triggerEvent Bastion,load
