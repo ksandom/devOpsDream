@@ -4,8 +4,6 @@
 
 # TODO detect existing clusterSSH installtion.
 
-debug 0,DEPRECATED 2018-06-17: You are using the legacy clusterSSH functionality. Feel free to do so, but understand that the focus is now on the replacement, and that's where debugging effort will go.
-
 outNow
 triggerEvent Bastion,load
 triggerEvent Bastion,lookup
@@ -26,7 +24,7 @@ else
 retrieveResults Cssh,resultset
 
 
-template clusterSSH
+template legacyClusterSSH
 cleanUnresolvedResultVars
 nested
 exec

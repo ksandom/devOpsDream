@@ -1,0 +1,10 @@
+# Run ClusterSSH over the matching hosts. ~ cssh,user,ssh,cluster,Cluster
+# #onDefine aliasFeature clusterSSH,cssh
+#onLoaded setFeatureType clusterSSH,actOnHostsUnknown
+
+debug 0,ALPHA 2018-06-17: You are using the alpha clusterSSH functionality. Feel free to do so, but if you have trouble, you might want to try the deprecated --legacyClusterSSH or `--lcssh`.
+
+nested
+template clusterSSH
+
+
