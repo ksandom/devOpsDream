@@ -43,8 +43,15 @@ loop
 	set Result,IP,~!Result,PrivateIpAddress!~
 	
 	# When VPNed in without amazon's internal DNS, the IP is still useful, while the DNS entry isn't.
-	set Result,internalFQDN,~!Result,PrivateIpAddress!~
+	set Result,internalFQDN,~!Result,PrivateDnsName!~
 	set Result,FQDN,~!Result,PrivateIpAddress!~
+	
+	# Get the public IP
+	set Result,externalIP,~!Result,PublicIpAddress!~
+	set Result,IP,~!Result,PublicIpAddress!~
+	
+	set Result,externalFQDN,~!Result,PublicDnsName!~
+	set Result,FQDN,~!Result,PublicDnsName!~
 	
 	
 	# Map some defaults
@@ -56,9 +63,6 @@ loop
 	set Result,profile,~!Local,profile!~
 	set Result,region,~!Local,region!~
 
-pass
-	
-	
 # Trigger any other manipulations
 triggerEvent AWS,importedInstances
 
