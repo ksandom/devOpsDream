@@ -1,0 +1,5 @@
+# Show the current DevOpsDream config for Chef. ~ chef,config
+
+assertChef
+
+retrieveResults Chef,config
