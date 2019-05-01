@@ -3,4 +3,4 @@ parameters dir
 
 assertChef
 
-set Chef,config,dir,~!Local,dir!~
+setNested Chef,config,dir,~!Local,dir!~
