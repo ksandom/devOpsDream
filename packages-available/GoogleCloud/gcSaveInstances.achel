@@ -1,0 +1,3 @@
+# Save instances to be loaded by --list. ~ gc,gcloud,hidden
+
+saveToJson ~!General,configDir!~/data/1LayerHosts/gc.json

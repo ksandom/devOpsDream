@@ -1,0 +1,5 @@
+# Get everything from Google Cloud ~ gc,gcloud,import,alls
+
+gcGetInstances
+gcInstanceManipulations
+gcSaveInstances

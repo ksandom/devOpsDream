@@ -1,0 +1,21 @@
+# Manipulations for google cloud instances./ ~ gc,gcloud,instances,hidden
+#onDefine registerForEvent GoogleCloud,finishedHostImport,gcInstanceManipulations
+
+loop
+	set Result,source,gc
+	replaceRegexInString Result,shortZone,(^.*\/),,~!Result,zone!~
+	replaceRegexInString Result,instanceType,(^.*\/),,~!Result,machineType!~
+	replaceRegexInString Result,project,(^.*projects\/),,~!Result,machineType!~
+	replaceRegexInString Result,project,(\/.*),,~!Result,project!~
+	
+	set Result,hostName,~!Result,name!~
+	set Result,InstanceId,~!Result,id!~
+	set Result,internalIP,~!Result,networkInterfaces,0,networkIP!~
+	set Result,externalIP,~!Result,networkInterfaces,0,accessConfigs,0,natIP!~
+	set Result,display01,~!Result,shortZone!~
+	set Result,display02,~!Result,instanceType!~
+	set Result,display03,~!Result,cpuPlatform!~
+	set Result,display04,~!Result,disks,0,type!~
+	set Result,termCmd,gcloud compute ssh --zone=~!Result,shortZone!~ ~!Result,name!~ ~%cmd%~
+	set Result,externalFQDN,~!Result,name!~.~!Result,shortZone!~.~!Result,project!~
+

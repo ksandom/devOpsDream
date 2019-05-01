@@ -1,0 +1,3 @@
+# Load cached gcloud instances. This is basically for testing. ~ hidden,gcloud,instances
+
+collectionLoadArbitrary GCInstancesCache,~!General,storageDir!~/data/GCInstancesCache.json
