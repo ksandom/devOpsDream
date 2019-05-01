@@ -25,7 +25,7 @@ loop
 	# set Result,IP,~!Result,externalIP!~
 	
 	set Result,externalFQDN,~!Result,network,PublicDnsName!~
-	set Result,FQDN,~!Result,PublicDnsName!~
+	# set Result,FQDN,~!Result,PublicDnsName!~
 	
 	# TODO default_interface
 
