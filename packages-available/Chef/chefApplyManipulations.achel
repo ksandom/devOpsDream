@@ -1,0 +1,9 @@
+# Apply Chef manipulations. ~ chef,import,manipulations
+# If you want to create manipulations for your environment, see the readme.md for how to do that.
+
+triggerEvent Chef,importedHosts
+
+loop
+	# Standard manipulations for any Chef install.
+	
+	set Result,hostName,~!Result,automatic,hostnamectl,static_hostname!~

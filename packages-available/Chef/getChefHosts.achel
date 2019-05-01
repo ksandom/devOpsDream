@@ -8,4 +8,6 @@ setCategory ChefTmp
 retrieveResults ChefTmp,rows
 unsetCategory ChefTmp
 
+chefApplyManipulations
+
 saveToJson ~!General,hostsDir!~/Chef.json
