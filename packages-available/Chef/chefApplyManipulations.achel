@@ -5,5 +5,27 @@ triggerEvent Chef,importedHosts
 
 loop
 	# Standard manipulations for any Chef install.
+	set Result,source,knife
+	now Result,importTimeStamp
+	fuzzyTime Result,importFuzzyTimeStamp,~!Result,importTimeStamp!~
 	
 	set Result,hostName,~!Result,automatic,hostnamectl,static_hostname!~
+	
+	# Get the private IP
+	# TODO This is not correct. It should probably be privateIP
+	set Result,internalIP,~!Result,network,ipaddress_eth0!~
+	set Result,IP,~!Result,internalIP!~
+	
+	# When VPNed in without amazon's internal DNS, the IP is still useful, while the DNS entry isn't.
+	# set Result,internalFQDN,~!Result,PrivateDnsName!~
+	set Result,FQDN,~!Result,internalIP!~
+	
+	# Get the public IP
+	set Result,externalIP,~!Result,internalIP!~
+	# set Result,IP,~!Result,externalIP!~
+	
+	set Result,externalFQDN,~!Result,network,PublicDnsName!~
+	set Result,FQDN,~!Result,PublicDnsName!~
+	
+	# TODO default_interface
+
