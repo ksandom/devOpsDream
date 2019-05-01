@@ -1,0 +1,5 @@
+# Get hosts from chef. ~ chef,import
+
+pass
+
+exExec knife search '*' --format=json
