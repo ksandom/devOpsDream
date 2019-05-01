@@ -1,5 +1,11 @@
 # Get hosts from chef. ~ chef,import
 
-pass
+# TODO Change directory to where chef is configured.
 
 exExec knife search '*' --format=json
+
+setCategory ChefTmp
+retrieveResults ChefTmp,rows
+unsetCategory ChefTmp
+
+saveToJson ~!General,hostsDir!~/Chef.json
