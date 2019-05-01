@@ -3,5 +3,5 @@
 collectionLoad Chef
 
 if ~!Chef,config,dir!~,==,,
-  debug 0,Chef directory is not configured. You can do so with --chefDir=/path/to/chef/config
+	debug 0,Chef directory is not configured. You can do so with --chefDir=/path/to/chef/config
 
