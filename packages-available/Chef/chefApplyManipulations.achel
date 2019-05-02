@@ -27,5 +27,14 @@ loop
 	set Result,externalFQDN,~!Result,network,PublicDnsName!~
 	# set Result,FQDN,~!Result,PublicDnsName!~
 	
+	
+	# TODO remove this: Hack to get me going today.
+	set Result,internalIP,~!Result,hostName!~
+	set Result,internalFQDN,~!Result,hostName!~
+	set Result,IP,~!Result,hostName!~
+	set Result,externalIP,~!Result,hostName!~
+	set Result,externalFQDN,~!Result,hostName!~
+	
+	
 	# TODO default_interface
 
