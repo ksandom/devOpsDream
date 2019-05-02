@@ -5,7 +5,7 @@ triggerEvent Chef,importedHosts
 
 loop
 	# Standard manipulations for any Chef install.
-	set Result,source,knife
+	set Result,source,ChefKnife
 	now Result,importTimeStamp
 	fuzzyTime Result,importFuzzyTimeStamp,~!Result,importTimeStamp!~
 	
