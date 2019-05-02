@@ -1,4 +1,4 @@
-# Apply Chef manipulations. ~ chef,import,manipulations
+# Apply Chef manipulations. You'll generally only ever run this when debugging the import process. ~ chef,import,manipulations
 # If you want to create manipulations for your environment, see the readme.md for how to do that.
 
 triggerEvent Chef,importedHosts

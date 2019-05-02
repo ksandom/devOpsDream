@@ -1,4 +1,4 @@
-# Assert that chef is properly configured. ~ chef,config
+# Assert that chef is properly configured. ~ chef,config,hidden
 
 collectionLoad Chef
 
