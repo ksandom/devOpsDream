@@ -40,4 +40,9 @@ loop
 	
 	
 	# TODO default_interface
+	
+	
+	# Let's get rid of some stuff to lighten up the dataset.
+	unset Result,automatic,etc
+	unset Result,automatic,cpu
 
