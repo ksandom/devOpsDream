@@ -19,7 +19,7 @@ loop
 	
 	# When VPNed in without amazon's internal DNS, the IP is still useful, while the DNS entry isn't.
 	# set Result,internalFQDN,~!Result,PrivateDnsName!~
-	set Result,FQDN,~!Result,internalIP!~
+	set Result,FQDN,~!Result,hostName!~
 	
 	# Get the public IP
 	set Result,externalIP,~!Result,internalIP!~
