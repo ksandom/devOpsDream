@@ -8,7 +8,10 @@ setCategory ChefTmp
 retrieveResults ChefTmp,rows
 unsetCategory ChefTmp
 
-# saveToJson ~!General,configDir!~/data/ChefFull.data.json
+stashResults Tmp,chef
+saveToJson ~!General,configDir!~/data/ChefFull.data.json
+retrieveResults Tmp,chef
+unset Tmp,chef
 
 chefApplyManipulations
 
