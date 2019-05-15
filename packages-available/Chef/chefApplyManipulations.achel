@@ -36,6 +36,8 @@ loop
 	set Result,externalIP,~!Result,hostName!~
 	set Result,externalFQDN,~!Result,hostName!~
 	
+	set Result,display01,~!Result,datacenter!~
+	
 	
 	# TODO default_interface
 
