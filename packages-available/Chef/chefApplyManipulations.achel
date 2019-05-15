@@ -31,12 +31,14 @@ loop
 	
 	# TODO remove this: Hack to get me going today.
 	set Result,internalIP,~!Result,automatic,network,backend_ip!~
-	set Result,internalFQDN,~!Result,hostName!~
-	set Result,IP,~!Result,hostName!~
-	set Result,externalIP,~!Result,automatic,network,ipaddress_~!Result,automatic,network,default_interface!~!~
-	set Result,externalFQDN,~!Result,hostName!~
+	set Result,internalFQDN,~!Result,automatic,machinename!~
+	set Result,IP,~!Result,internalIP!~
+	set Result,externalIP,~!Result,automatic,ipaddress!~
+	set Result,externalFQDN,~!Result,automatic,fqdn!~
+	set Result,instanceId,~!Result,automatic,machine_id!~
 	
 	set Result,display01,~!Result,override,datacenter!~
+	set Result,display02,~!Result,automatic,hostnamectl,archtecture!~
 	
 	
 	# TODO default_interface
@@ -45,4 +47,5 @@ loop
 	# Let's get rid of some stuff to lighten up the dataset.
 	unset Result,automatic,etc
 	unset Result,automatic,cpu
+	unset Result,automatic,packages
 
