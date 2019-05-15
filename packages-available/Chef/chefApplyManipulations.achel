@@ -9,7 +9,8 @@ loop
 	now Result,importTimeStamp
 	fuzzyTime Result,importFuzzyTimeStamp,~!Result,importTimeStamp!~
 	
-	set Result,hostName,~!Result,automatic,hostnamectl,static_hostname!~
+	# set Result,hostName,~!Result,automatic,hostnamectl,static_hostname!~
+	set Result,hostName,~!Result,name!~
 	
 	# Get the private IP
 	# TODO This is not correct. It should probably be privateIP
