@@ -30,10 +30,10 @@ loop
 	
 	
 	# TODO remove this: Hack to get me going today.
-	set Result,internalIP,~!Result,hostName!~
+	set Result,internalIP,~!Result,automatic,network,backend_ip!~
 	set Result,internalFQDN,~!Result,hostName!~
 	set Result,IP,~!Result,hostName!~
-	set Result,externalIP,~!Result,hostName!~
+	set Result,externalIP,~!Result,automatic,network,ipaddress_~!Result,automatic,network,default_interface!~!~
 	set Result,externalFQDN,~!Result,hostName!~
 	
 	set Result,display01,~!Result,override,datacenter!~
