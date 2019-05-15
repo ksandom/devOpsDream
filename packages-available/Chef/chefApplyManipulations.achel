@@ -38,7 +38,7 @@ loop
 	set Result,instanceId,~!Result,automatic,machine_id!~
 	
 	set Result,display01,~!Result,override,datacenter!~
-	set Result,display02,~!Result,automatic,hostnamectl,archtecture!~
+	set Result,display02,~!Result,automatic,hostnamectl,architecture!~
 	
 	
 	# TODO default_interface
