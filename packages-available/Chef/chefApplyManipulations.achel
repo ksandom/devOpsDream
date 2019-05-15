@@ -19,7 +19,7 @@ loop
 	
 	# When VPNed in without amazon's internal DNS, the IP is still useful, while the DNS entry isn't.
 	# set Result,internalFQDN,~!Result,PrivateDnsName!~
-	set Result,FQDN,~!Result,hostName!~
+	set Result,FQDN,~!Result,automatic,machinename!~
 	
 	# Get the public IP
 	set Result,externalIP,~!Result,internalIP!~
@@ -38,7 +38,8 @@ loop
 	set Result,instanceId,~!Result,automatic,machine_id!~
 	
 	set Result,display01,~!Result,override,datacenter!~
-	set Result,display02,~!Result,automatic,hostnamectl,architecture!~
+	set Result,display02,~!Result,automatic,hostnamectl,virtualization!~
+	set Result,display03,~!Result,automatic,hostnamectl,architecture!~
 	
 	
 	# TODO default_interface
@@ -48,4 +49,5 @@ loop
 	unset Result,automatic,etc
 	unset Result,automatic,cpu
 	unset Result,automatic,packages
+	unset Result,normal,monitoring
 
