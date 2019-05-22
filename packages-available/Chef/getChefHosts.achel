@@ -2,17 +2,23 @@
 
 # TODO Change directory to where chef is configured.
 
+debug 1,Getting data from chef.
 exExec knife search '*' --format=json
 
+debug 1,Counting.
 setCategory ChefTmp
 retrieveResults ChefTmp,rows
 unsetCategory ChefTmp
 
+debug 1,Saving full data to ~!General,configDir!~/data/ChefFull.data.json for debugging.
 stashResults Tmp,chef
 saveToJson ~!General,configDir!~/data/ChefFull.data.json
 retrieveResults Tmp,chef
 unset Tmp,chef
 
+
+debug 1,Manipulating.
 chefApplyManipulations
 
+debug 1,Saving.
 saveToJson ~!General,hostsDir!~/Chef.json
