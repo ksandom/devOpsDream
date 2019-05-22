@@ -56,5 +56,8 @@ loop
 	# unset Result,automatic,packages
 	# unset Result,automatic,filesystem2
 	# unset Result,automatic,keys
-	unset Result,normal,monitoring
+	unset Result,override
+	unset Result,normal
+	# unset Result,normal,monitoring
+	unset Result,default
 
