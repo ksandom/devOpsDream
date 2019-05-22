@@ -40,14 +40,21 @@ loop
 	set Result,display01,~!Result,override,datacenter!~
 	set Result,display02,~!Result,automatic,hostnamectl,virtualization!~
 	set Result,display03,~!Result,automatic,hostnamectl,architecture!~
+	set Result,display04,~!Result,automatic,hostnamectl,operating_system!~
 	
 	
 	# TODO default_interface
-	
-	
-	# Let's get rid of some stuff to lighten up the dataset.
-	unset Result,automatic,etc
-	unset Result,automatic,cpu
-	unset Result,automatic,packages
+
+# Apply any custom manipulations before we get rid of data we don't need.
+triggerEvent Chef,importedInstances
+
+# Let's get rid of some stuff to lighten up the dataset.
+loop
+	unset Result,automatic
+	# unset Result,automatic,etc
+	# unset Result,automatic,cpu
+	# unset Result,automatic,packages
+	# unset Result,automatic,filesystem2
+	# unset Result,automatic,keys
 	unset Result,normal,monitoring
 
