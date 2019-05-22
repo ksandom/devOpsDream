@@ -60,4 +60,5 @@ loop
 	unset Result,normal
 	# unset Result,normal,monitoring
 	unset Result,default
+	unset Result,run_list
 
