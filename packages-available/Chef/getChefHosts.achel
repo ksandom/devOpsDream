@@ -5,20 +5,27 @@
 debug 1,Getting data from chef.
 exExec knife search '*' --format=json
 
-debug 1,Counting.
+debug 1,Grabbing just the hosts.
 setCategory ChefTmp
 retrieveResults ChefTmp,rows
 unsetCategory ChefTmp
 
-debug 1,Saving full data to ~!General,configDir!~/data/ChefFull.data.json for debugging.
-stashResults Tmp,chef
-saveToJson ~!General,configDir!~/data/ChefFull.data.json
-retrieveResults Tmp,chef
-unset Tmp,chef
+debug 1,Counting.
+countToVar Tmp,chefCount
+
+if ~!Tmp,chefCount!~,>,1,
+	debug 1,Saving full data to ~!General,configDir!~/data/ChefFull.data.json for debugging.
+	stashResults Tmp,chef
+	saveToJson ~!General,configDir!~/data/ChefFull.data.json
+	retrieveResults Tmp,chef
+	unset Tmp,chef
 
 
-debug 1,Manipulating.
-chefApplyManipulations
+	debug 1,Manipulating.
+	chefApplyManipulations
 
-debug 1,Saving.
-saveToJson ~!General,hostsDir!~/Chef.json
+	debug 1,Saving.
+	saveToJson ~!General,hostsDir!~/Chef.json
+
+else
+	debug 0,Only ~!Tmp,chefCount!~ hosts. This probably wasn't a succesful import. Aborting.
