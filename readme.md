@@ -32,7 +32,7 @@ See [docs/install.md](mass/tree/master/docs/install.md) for more information.
 
 Get into the directory where you place bins (like bash scripts) and then run the following command.
 
-    export CONTAINER=kjsandom/achel; curl https://raw.githubusercontent.com/ksandom/achel/master/automation/dockerExternal/dumpBins | bash
+    export CONTAINER=kjsandom/devopsdream; curl https://raw.githubusercontent.com/ksandom/achel/master/automation/dockerExternal/dumpBins | bash
 
 This can be used for any Achel based docker container. It pulls the docker container, and then extracts the wrappers for each of the commands provided by that container.
 
@@ -40,7 +40,7 @@ This can be used for any Achel based docker container. It pulls the docker conta
 
     curl https://raw.githubusercontent.com/ksandom/achel/master/automation/dockerExternal/dumpBins > dumpBins
     cat dumpBins # sanity check
-    export CONTAINER=kjsandom/achel; cat dumpBins | bash
+    export CONTAINER=kjsandom/devopsdream; cat dumpBins | bash
 
 Exactly the same as the "Docker, from scratch" section above, but gives you a chance to sanity check what this code you just downloaded actually does.
 
