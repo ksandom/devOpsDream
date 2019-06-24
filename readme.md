@@ -18,9 +18,32 @@ NOTE There will still be references to mass in the documentation while I complet
 
 ## Install
 
+### If achel is already installed
+
+    achelctl repoInstall https://github.com/ksandom/devOpsDream.git
+
+### Locally, from scratch
+
     export extraSrc="https://github.com/ksandom/devOpsDream.git"; curl https://raw.githubusercontent.com/ksandom/achel/master/supplimentary/misc/webInstall | bash
 
 See [docs/install.md](mass/tree/master/docs/install.md) for more information.
+
+### Docker, from scratch
+
+Get into the directory where you place bins (like bash scripts) and then run the following command.
+
+    export CONTAINER=kjsandom/achel; curl https://raw.githubusercontent.com/ksandom/achel/master/automation/dockerExternal/dumpBins | bash
+
+This can be used for any Achel based docker container. It pulls the docker container, and then extracts the wrappers for each of the commands provided by that container.
+
+### Docker for careful people (a good habbit)
+
+    curl https://raw.githubusercontent.com/ksandom/achel/master/automation/dockerExternal/dumpBins > dumpBins
+    cat dumpBins # sanity check
+    export CONTAINER=kjsandom/achel; cat dumpBins | bash
+
+Exactly the same as the "Docker, from scratch" section above, but gives you a chance to sanity check what this code you just downloaded actually does.
+
 
 ## Important updates
 
