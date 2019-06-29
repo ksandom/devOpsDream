@@ -1,7 +1,7 @@
 FROM kjsandom/achel
 
 # Install the luxury packages that will bring us the fun functionality.
-RUN apt update && apt install -y screen xterm clusterssh tmux
+RUN apt update && apt install -y screen xterm clusterssh
 
 # Install stuff for AWS
 RUN apt update && apt install -y python3-pip && pip3 install awscli
@@ -19,8 +19,8 @@ RUN apt update && apt install -y python3-pip && pip3 install awscli
 # RUN gem install chef && gem install chef
 
 # Install devOpsDream
-ADD . /usr/install/devOpsDream
-RUN cd /usr/install/devOpsDream && \
+ADD . /usr/installs/devOpsDream
+RUN cd /usr/installs/devOpsDream && \
   /usr/installs/achel/automation/dockerInternal/preInstall && \
   achelctl repoInstall `pwd` && \
   /usr/installs/achel/automation/dockerInternal/postInstall
