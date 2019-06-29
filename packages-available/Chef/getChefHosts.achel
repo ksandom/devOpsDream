@@ -10,10 +10,10 @@ setCategory ChefTmp
 retrieveResults ChefTmp,rows
 unsetCategory ChefTmp
 
-debug 1,Counting.
 countToVar Tmp,chefCount
+debug 1,~!Tmp,chefCount!~ results.
 
-if ~!Tmp,chefCount!~,>,1,
+if ~!Tmp,chefCount!~,>,2,
 	debug 1,Saving full data to ~!General,configDir!~/data/ChefFull.data.json for debugging.
 	stashResults Tmp,chef
 	saveToJson ~!General,configDir!~/data/ChefFull.data.json
