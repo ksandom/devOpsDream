@@ -1,7 +1,7 @@
 FROM kjsandom/achel
 
 # Install the luxury packages that will bring us the fun functionality.
-RUN apt update && apt install -y screen xterm clusterssh
+RUN apt update && apt install -y screen xterm clusterssh dnsutils
 
 # Install stuff for AWS
 RUN apt update && apt install -y python3-pip && pip3 install awscli
