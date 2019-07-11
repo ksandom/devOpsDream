@@ -1,0 +1,21 @@
+# SSH to the current hosts using xpanes ~ ssh,xpanes,x-panes,tmux
+#onDefine aliasFeature xpanes,xp,x
+
+noBG
+
+outNow
+triggerEvent Bastion,load
+triggerEvent Bastion,lookup
+triggerEvent Bastion,deriveCommands
+
+stashResults XPanes,resultset
+
+generateSSHCMD
+template xpanes
+cleanUnresolvedResultVars
+
+nested
+outNow
+exec
+
+# retrieveResults XPanes,resultset

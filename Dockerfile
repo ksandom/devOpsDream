@@ -1,7 +1,11 @@
 FROM kjsandom/achel
 
 # Install the luxury packages that will bring us the fun functionality.
-RUN apt update && apt install -y screen xterm clusterssh dnsutils
+RUN apt update && apt install -y screen xterm clusterssh dnsutils tmux
+RUN apt install -y software-properties-common && \
+  add-apt-repository ppa:greymd/tmux-xpanes && \
+  apt update && \
+  apt install -y tmux-xpanes
 
 # Install stuff for AWS
 RUN apt update && apt install -y python3-pip && pip3 install awscli
