@@ -27,4 +27,5 @@ ADD . /usr/installs/devOpsDream
 RUN cd /usr/installs/devOpsDream && \
   /usr/installs/achel/automation/dockerInternal/preInstall && \
   achelctl repoInstall `pwd` && \
+  achelctl repoReinstall `pwd` && \
   /usr/installs/achel/automation/dockerInternal/postInstall
