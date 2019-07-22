@@ -1,14 +1,14 @@
 FROM kjsandom/achel
 
 # Install the luxury packages that will bring us the fun functionality.
-RUN apt update && apt install -y screen xterm clusterssh dnsutils tmux
-RUN apt install -y software-properties-common && \
+RUN apt-get update && apt-get install -y screen xterm clusterssh dnsutils tmux
+RUN apt-get install -y software-properties-common && \
   add-apt-repository ppa:greymd/tmux-xpanes && \
-  apt update && \
-  apt install -y tmux-xpanes
+  apt-get update && \
+  apt-get install -y tmux-xpanes
 
 # Install stuff for AWS
-RUN apt update && apt install -y python3-pip && pip3 install awscli
+RUN apt-get update && apt-get install -y python3-pip && pip3 install awscli
 
 # Install stuff for chef
 # NOTE Disabled inbuilt Chef stuff for now. I need to understand it way better before I try this again. You can still create images based on this image and install it for your needs.
