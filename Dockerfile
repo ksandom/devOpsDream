@@ -27,4 +27,6 @@ ADD . /usr/installs/devOpsDream
 RUN cd /usr/installs/devOpsDream && \
   /usr/installs/achel/automation/dockerInternal/preInstall && \
   achelctl repoInstall `pwd` && \
-  /usr/installs/achel/automation/dockerInternal/postInstall
+  /usr/installs/achel/automation/dockerInternal/postInstall && \
+  cd /root && \
+  ln -sf /usr/achelData/credentials/ssh/ .ssh
