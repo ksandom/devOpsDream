@@ -4,7 +4,7 @@
 #
 # Syntax:
 #   $0 [repoName]
-#     repoName is the repository name that can be obtained with manageAchel repoList. See dodUpdaterAddRepo.
+#     repoName is the repository name that can be obtained with achelctl repoList. See dodUpdaterAddRepo.
 #
 # Examples:
 #   Build the DevOpsDreamUpdater

@@ -11,5 +11,5 @@ chmod 755 /var/achelRepos/achel/install.sh
 su - devOpsDreamUpdater -c /var/achelRepos/achel/install.sh
 
 # Install devOpsDream
-su - devOpsDreamUpdater -c "manageAchel repoInstall /var/achelRepos/devOpsDream"
+su - devOpsDreamUpdater -c "achelctl repoInstall /var/achelRepos/devOpsDream"
 

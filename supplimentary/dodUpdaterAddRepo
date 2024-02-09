@@ -6,7 +6,7 @@
 #
 # Syntax:
 #   $0 repoName
-#     repoName is the repository name that can be obtained with manageAchel repoList
+#     repoName is the repository name that can be obtained with achelctl repoList
 #
 # Examples:
 #   Add a repository to the DevOpsDreamUpdater
