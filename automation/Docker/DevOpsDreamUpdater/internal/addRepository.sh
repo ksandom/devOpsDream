@@ -10,4 +10,4 @@ cp -R "/tmp/$repoName" /var/achelRepos
 chown -R devOpsDreamUpdater "/var/achelRepos/$repoName"
 
 # repoInstall
-su - devOpsDreamUpdater -c "manageAchel repoInstall \"/var/achelRepos/$repoName\"; d --unitTests"
+su - devOpsDreamUpdater -c "achelctl repoInstall \"/var/achelRepos/$repoName\"; d --unitTests"

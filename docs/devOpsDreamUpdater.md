@@ -4,22 +4,22 @@ The place for updating your DevOpsDream host definitions and making them avialab
 
 ## Build it
 
-    manageAchel dodUpdaterBuild
+    achelctl dodUpdaterBuild
 
 ## Add a repository
 
-    manageAchel dodUpdaterAddRepo repoName
+    achelctl dodUpdaterAddRepo repoName
 
 ## Run it
 
-    manageAchel dodUpdaterRun
+    achelctl dodUpdaterRun
 
 ## Debug it
 
-    manageAchel dodUpdaterDebug
+    achelctl dodUpdaterDebug
 
 Or to get root access
 
-    manageAchel dodUpdaterDebug true
+    achelctl dodUpdaterDebug true
 
 Note that changes in debug are *not persistent*.

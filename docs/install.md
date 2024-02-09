@@ -42,7 +42,7 @@ See [gettingStarted.md](gettingStarted.md) in the mean time do `mass --help` whi
 
 The best way to update is to
 
-    manageAchel repoUpdate mass
+    achelctl repoUpdate mass
 
 # Stuff to think about after installing
 ## What stuff to enable
@@ -57,7 +57,7 @@ There are some reasons to consider what you want to enable:
 ## Enabling or disabling stuff
 _I've gone to a lot of effort to make the defaults pretty good. Feed back is welcome._
 
-You should enable and disable packages using the `packageEnable` and `packageDisable` in manageAchel.
+You should enable and disable packages using the `packageEnable` and `packageDisable` in achelctl.
 
 It all works like available/enabled system that ubuntu uses via symlinks. The biggest differnce is that enabled folders now sit with profiles/profileName, where each profile is for diffenent interfaces/use-cases/Achel-applications.
 
