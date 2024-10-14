@@ -1,0 +1,3 @@
+# Get all the servers from OpenStack. ~ openstack,servers
+
+exExec openstack server list -f json
