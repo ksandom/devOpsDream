@@ -1,3 +1,26 @@
 # Get all the servers from OpenStack. ~ openstack,servers
 
 exExec openstack server list -f json
+loop
+    set Result,hostName,~!Result,Name!~
+
+    # Set some interesting meta info.
+    set Result,display01,OpenStack
+    set Result,display02,~!Result,Flavor!~
+    set Result,display03,~!Result,Image!~
+
+    isolate
+        retrieveResults Result,Networks
+        set Result,networkCount,0
+
+        # Right now, if there are multiple networks, they will overwrite each other, but we will at least know about it.
+        loop Network
+            # TODO This needs to be done more intelligently. Eg is this always the right order.
+            set Result,internalIP,~!Network,1!~
+            set Result,externalIP,~!Network,0!~
+            debug 1,~!Result,hostName!~: Got network ~!Network,key!~
+
+            basicMaths Result,networkCount,~!Result,networkCount!~,+,1
+
+    if ~!Result,networkCount!~,!=,1,
+        complain Wrong number of networks (~!Result,networkCount!~) for ~!Result,hostName!~. Expected 1.
