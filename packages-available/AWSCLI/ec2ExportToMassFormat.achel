@@ -1,3 +1,0 @@
-# Export the current resultSet to the Mass/DevOpsDream format. ~ aws,cli,export,mass,hidden
-
-saveToJson ~!General,hostsDir!~/AWSCLI.json

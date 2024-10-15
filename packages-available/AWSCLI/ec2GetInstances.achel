@@ -12,7 +12,7 @@ loop Context,
 	isolate
 		ec2RetrieveInstances ~!Context,ProfileName!~,~!Context,RegionName!~
 		ec2ApplyManipulations ~!Context,ProfileName!~,~!Context,RegionName!~
-		
+
 		stashResults AWSCLIEC2import,~!Context,ProfileName!~-~!Context,RegionName!~
 
 # Combine them together.
@@ -22,7 +22,7 @@ unset AWSCLIEC2,instances
 stashResults AWSCLIEC2,instances
 
 # Make it useable for mass/devOpsDream.
-ec2ExportToMassFormat
+exportToMassFormat AWSCLI
 
 # Cleanup
 unsetCategory AWSCLIEC2import

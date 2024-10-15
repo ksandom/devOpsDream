@@ -1,0 +1,5 @@
+# Export hosts in the result set to a json file i the correct location so that will be searched automatically by --hosts. --exportToMassFormat=name where name describes where the data came from, such as AWSCLI, OpenStack etc. ~ hosts
+
+parameters name
+
+saveToJson ~!General,hostsDir!~/~!Local,name!~.json
