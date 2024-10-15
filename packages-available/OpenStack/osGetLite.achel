@@ -1,0 +1,3 @@
+# Import the essential stuff from OpenStack. ~ OpenStack,openstack
+
+triggerEvent OpenStack,getLite

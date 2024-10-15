@@ -1,5 +1,14 @@
 # Get all the servers from OpenStack. ~ openstack,servers
+#onDefine registerForEvent OpenStack,getAll,osGetServers
+#onDefine registerForEvent OpenStack,getLite,osGetServers
 
+# Get OpenStack project name.
+getPHPServer Tmp,env
+set Local,projectName,~!Tmp,env,OS_PROJECT_NAME!~
+unset Tmp,env
+
+
+# Import hosts from OpenStack.
 exExec openstack server list -f json
 loop
     set Result,hostName,~!Result,Name!~
@@ -24,3 +33,6 @@ loop
 
     if ~!Result,networkCount!~,!=,1,
         complain Wrong number of networks (~!Result,networkCount!~) for ~!Result,hostName!~. Expected 1.
+
+# Save data.
+exportToMassFormat OpenStack-~!Local,projectName!~
