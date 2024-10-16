@@ -18,12 +18,12 @@ loop
     set Result,display02,~!Result,Flavor!~
     set Result,display03,~!Result,Image!~
 
+    set Result,networkCount,0
     isolate
         retrieveResults Result,Networks
-        set Result,networkCount,0
 
         # Right now, if there are multiple networks, they will overwrite each other, but we will at least know about it.
-        loop Network
+        loop Network,
             # TODO This needs to be done more intelligently. Eg is this always the right order.
             set Result,internalIP,~!Network,1!~
             set Result,externalIP,~!Network,0!~
