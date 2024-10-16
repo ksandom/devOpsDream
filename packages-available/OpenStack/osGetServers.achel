@@ -18,6 +18,7 @@ loop
     set Result,display02,~!Result,Flavor!~
     set Result,display03,~!Result,Image!~
     set Result,display04,~!Result,Availability Zone!~
+    set Result,InstanceId,~!Result,ID!~
 
     set Result,networkCount,0
     isolate
