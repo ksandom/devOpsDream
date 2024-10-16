@@ -9,7 +9,7 @@ unset Tmp,env
 
 
 # Import hosts from OpenStack.
-exExec openstack server list -f json
+exExec openstack server list -f json --long
 loop
     set Result,hostName,~!Result,Name!~
 
@@ -17,6 +17,7 @@ loop
     set Result,display01,OpenStack
     set Result,display02,~!Result,Flavor!~
     set Result,display03,~!Result,Image!~
+    set Result,display04,~!Result,Availability Zone!~
 
     set Result,networkCount,0
     isolate
