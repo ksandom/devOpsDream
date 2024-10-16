@@ -27,6 +27,10 @@ loop
             # TODO This needs to be done more intelligently. Eg is this always the right order.
             set Result,internalIP,~!Network,1!~
             set Result,externalIP,~!Network,0!~
+
+            # TODO This is a good starting point, but there is likely already something available that is better.
+            set Result,internalFQDN,~!Result,internalIP!~
+            set Result,externalFQDN,~!Result,externalIP!~
             debug 1,~!Result,hostName!~: Got network ~!Network,key!~
 
             basicMaths Result,networkCount,~!Result,networkCount!~,+,1
