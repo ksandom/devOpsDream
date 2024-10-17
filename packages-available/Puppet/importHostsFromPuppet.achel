@@ -12,6 +12,8 @@ unsetCategory PuppetImport
 applyPuppetManipulations
 
 triggerEvent Hosts,importedFromPuppet
+triggerEvent Hosts,imported
+
 cleanHostData
 
 if ~!Global,importHostsFromPuppet-0!~,!=,,

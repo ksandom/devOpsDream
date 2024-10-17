@@ -9,15 +9,15 @@ loop
 	unset Result,key
 	unset Result,RequesterId
 	unset Result,Region
-	
+
 flatten 2
 
 loop
 	set Result,source,aws
-	
+
 	# Get hostName
 	unset Local,hostName
-	
+
 	isolate
 		copyCategory Result,ResultBackup
 		retrieveResults Result,Tags
@@ -30,41 +30,43 @@ loop
 		set Result,hostName,~!Local,hostName!~
 	else
 		set Result,hostName,unNamedTravesty
-	
-	
+
+
 	# Set some variables
 	set Result,source,AWSCLI
 	now Result,importTimeStamp
 	fuzzyTime Result,importFuzzyTimeStamp,~!Result,importTimeStamp!~
-	
+
 	# Get the private IP
 	# TODO This is not correct. It should probably be privateIP
 	set Result,internalIP,~!Result,PrivateIpAddress!~
 	set Result,IP,~!Result,PrivateIpAddress!~
-	
+
 	# When VPNed in without amazon's internal DNS, the IP is still useful, while the DNS entry isn't.
 	set Result,internalFQDN,~!Result,PrivateDnsName!~
 	set Result,FQDN,~!Result,PrivateIpAddress!~
-	
+
 	# Get the public IP
 	set Result,externalIP,~!Result,PublicIpAddress!~
 	set Result,IP,~!Result,PublicIpAddress!~
-	
+
 	set Result,externalFQDN,~!Result,PublicDnsName!~
 	set Result,FQDN,~!Result,PublicDnsName!~
-	
-	
+
+
 	# Map some defaults
 	set Result,location,~!Result,Placement,AvailabilityZone!~
 	set Result,instanceType,~!Result,InstanceType!~
 	set Result,architecture,~!Result,Architecture!~
 	set Result,rootDeviceType,~!Result,RootDeviceType!~
-	
+
 	set Result,profile,~!Local,profile!~
 	set Result,region,~!Local,region!~
 
 # Trigger any other manipulations
 triggerEvent AWS,importedInstances
+triggerEvent Hosts,imported
+
 
 # TODO remove legacy events
 triggerEvent AWS,importedHostsFromAccount

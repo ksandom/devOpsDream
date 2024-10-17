@@ -40,5 +40,9 @@ loop
     if ~!Result,networkCount!~,!=,1,
         complain Wrong number of networks (~!Result,networkCount!~) for ~!Result,hostName!~. Expected 1.
 
+# An event for doing company-specific manipulations.
+triggerEvent OpenStack,importedFromOpenStack
+triggerEvent Hosts,imported
+
 # Save data.
 exportToMassFormat OpenStack-~!Local,projectName!~

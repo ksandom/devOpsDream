@@ -1,0 +1,5 @@
+# When importing hosts, se the preferredInterface for each of the imported hosts in the result set. --prefer=interface where interface is internal or external ~ import
+
+parameters preferredInterface
+
+registerForEvent Hosts,imported,applyPreferredInterface,~!Local,preferredInterface!~

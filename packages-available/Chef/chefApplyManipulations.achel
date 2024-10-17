@@ -8,27 +8,27 @@ loop
 	set Result,source,ChefKnife
 	now Result,importTimeStamp
 	fuzzyTime Result,importFuzzyTimeStamp,~!Result,importTimeStamp!~
-	
+
 	# set Result,hostName,~!Result,automatic,hostnamectl,static_hostname!~
 	set Result,hostName,~!Result,name!~
-	
+
 	# Get the private IP
 	# TODO This is not correct. It should probably be privateIP
 	set Result,internalIP,~!Result,network,ipaddress_eth0!~
 	set Result,IP,~!Result,internalIP!~
-	
+
 	# When VPNed in without amazon's internal DNS, the IP is still useful, while the DNS entry isn't.
 	# set Result,internalFQDN,~!Result,PrivateDnsName!~
 	set Result,FQDN,~!Result,automatic,machinename!~
-	
+
 	# Get the public IP
 	set Result,externalIP,~!Result,internalIP!~
 	# set Result,IP,~!Result,externalIP!~
-	
+
 	set Result,externalFQDN,~!Result,network,PublicDnsName!~
 	# set Result,FQDN,~!Result,PublicDnsName!~
-	
-	
+
+
 	# TODO remove this: Hack to get me going today.
 	set Result,internalIP,~!Result,automatic,network,backend_ip!~
 	set Result,internalFQDN,~!Result,automatic,machinename!~
@@ -36,17 +36,18 @@ loop
 	set Result,externalIP,~!Result,automatic,ipaddress!~
 	set Result,externalFQDN,~!Result,automatic,fqdn!~
 	set Result,instanceId,~!Result,automatic,machine_id!~
-	
+
 	set Result,display01,~!Result,override,datacenter!~
 	set Result,display02,~!Result,automatic,hostnamectl,virtualization!~
 	set Result,display03,~!Result,automatic,hostnamectl,architecture!~
 	set Result,display04,~!Result,automatic,hostnamectl,operating_system!~
-	
-	
+
+
 	# TODO default_interface
 
 # Apply any custom manipulations before we get rid of data we don't need.
 triggerEvent Chef,importedInstances
+triggerEvent Hosts,imported
 
 # Let's get rid of some stuff to lighten up the dataset.
 loop

@@ -1,0 +1,12 @@
+# Apply the preferredInterface to the hosts. --applyPreferredInterface=interface where interface is internal or external ~ hidden
+
+parameters interface
+
+if ~!Local,interface!~,==,i,
+    set Local,interface,internal
+
+if ~!Local,interface!~,==,e,
+    set Local,interface,external
+
+loop
+    set Result,preferredInterface,~!Local,interface!~

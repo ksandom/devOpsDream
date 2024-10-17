@@ -6,6 +6,31 @@ This document describes what you can do about it.
 
 ## Preferred methods
 
+### --prefer
+
+During the import process, you can use the `--prefer` parameter to prefer a given interface all of the hosts that come from this import method.
+
+```
+d --prefer=internal --osGetAll
+```
+
+### Import manipulations
+
+You can apply fine-grain control over which hosts use which interfaces.
+
+```
+# Apply company speific manipulations. ~ company,hostManipulations
+#onDefine registerForEvent Hosts,imported,companySpecific
+
+# Use the internal interface via the VPN.
+manipulateItem hostName,.*live,resultSet preferredInterface,internal
+
+# Use the external interface for unsecured hosts.
+manipulateItem hostName,.*stag,resultSet preferredInterface,external
+manipulateItem hostName,.*dev,resultSet preferredInterface,external
+manipulateItem hostName,.*test,resultSet preferredInterface,external
+```
+
 ## Short term hacks
 
 ### --useInterface - Choose which interface is best.
@@ -16,20 +41,20 @@ Let's say you have a listing
 
     $ mass --list=k1
     k1 / 192.168.0.91 / unknown location
-      192.168.0.91 
+      192.168.0.91
       unknown type / unknown architecture / unknown rootDeviceType
     1 hosts
 
 You can see what information is available like this
 
     $ mass --list=k1 --nested
-    
-      0: 
-        hostNameMap: 
+
+      0:
+        hostNameMap:
         hostnameCount: 1
         internalIP: 192.168.0.91
         hostName: k1
-        hostnameMap: 
+        hostnameMap:
           192.168.0.91: 192.168.0.91
         hostName1: 192.168.0.91
         source: hosts file
@@ -47,13 +72,13 @@ You can see what information is available like this
 Say you want to use the hostName. You can do it like this
 
     $ mass --list=k1 --nested --useInterface=hostName
-    
-      0: 
-        hostNameMap: 
+
+      0:
+        hostNameMap:
         hostnameCount: 1
         internalIP: 192.168.0.91
         hostName: k1
-        hostnameMap: 
+        hostnameMap:
           192.168.0.91: 192.168.0.91
         hostName1: 192.168.0.91
         source: hosts file

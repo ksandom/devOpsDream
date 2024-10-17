@@ -14,8 +14,9 @@ countToVar Tmp,hostCount
 if ~!Tmp,hostCount!~,>,0,
 	applyHostsManipulations
 	triggerEvent Hosts,importedFromETCHosts
+	triggerEvent Hosts,imported
 	cleanHostData
-	
+
 	# save store to data
 	debug 1,importHosts: Saving to ~!Tmp,filePrefix!~~!Tmp,fileName!~
 	saveToJson ~!Tmp,filePrefix!~~!Tmp,fileName!~
